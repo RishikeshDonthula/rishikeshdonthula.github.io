@@ -36,6 +36,9 @@ collections:
   my_tags:
     output: true
     permalink: /tagged/:slug/
+  projects:
+    output: true
+    permalink: /projects/:slug/
 defaults:
   -
     scope:
@@ -43,6 +46,12 @@ defaults:
       type: my_tags
     values:
       layout: tagged
+  -
+    scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
 
 # baseurl: ""
 permalink: /blog/:slug
@@ -57,6 +66,7 @@ exclude: [vendor]
 
 Blog: /blog
 Life: /life
+Projects: /projects
 
 # Add general links to site pages here
 links:

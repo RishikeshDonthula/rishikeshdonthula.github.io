@@ -1,0 +1,56 @@
+---
+layout: compress
+---
+
+{% include head.html %}
+
+<main>
+
+    {% include header.html %}
+
+    <article>
+        <h1>{{ page.title }}</h1>
+
+        {% if page.description %}
+        <p><i>{{ page.description }}</i></p>
+        {% endif %}
+
+        <!-- Project metadata section -->
+        <p>
+            {% if page.github_url %}
+                <a href="{{ page.github_url }}">GitHub</a>
+            {% endif %}
+
+            {% if page.demo_url %}
+                {% if page.github_url %} | {% endif %}
+                <a href="{{ page.demo_url }}">Live Demo</a>
+            {% endif %}
+
+            {% if page.tech_stack %}
+                <br><small><b>Tech Stack:</b> {{ page.tech_stack | join: ", " }}</small>
+            {% endif %}
+        </p>
+
+        <hr>
+
+        <!-- Main project content -->
+        {{ content }}
+
+        <!-- Optional image gallery (reuse existing component) -->
+        {% if page.image_folder %}
+        <h2>Screenshots</h2>
+        {% include image-gallery.html folder=page.image_folder %}
+        {% endif %}
+
+    </article>
+
+    <p>
+        <small><a href="{{ site.baseurl }}/projects">← Back to Projects</a></small>
+    </p>
+
+</main>
+
+{% include footer.html %}
+
+</body>
+</html>
