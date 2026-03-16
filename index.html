@@ -20,7 +20,8 @@
 <body class="bg-white text-zinc-900 antialiased">
 
   <!-- ── NAV ── -->
-  <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-zinc-200 z-50">
+  <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-zinc-200 z-50 relative">
+    <div id="scrollBar" style="position:absolute;top:0;left:0;height:3px;width:0%;background:#3b82f6;transition:width 0.1s linear;z-index:10;"></div>
     <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
       <span class="font-semibold text-sm text-zinc-900 tracking-tight">Rishikesh Donthula</span>
       <button id="navToggle" class="md:hidden flex flex-col gap-1.5 p-1" aria-label="Toggle menu">
@@ -52,7 +53,7 @@
   </nav>
 
   <!-- ── HERO ── -->
-  <section id="home" class="bg-zinc-950 pt-36 pb-28 relative overflow-hidden">
+  <section id="home" class="bg-zinc-950 pt-28 pb-20 relative overflow-hidden">
     <div class="dot-pattern absolute inset-0 pointer-events-none"></div>
     <div class="max-w-5xl mx-auto px-6 relative">
       <div class="flex flex-col md:flex-row items-start md:items-center gap-10">
@@ -81,14 +82,14 @@
   </section>
 
   <!-- ── ABOUT ── -->
-  <section id="about" class="py-24 bg-white">
+  <section id="about" class="py-14 bg-white">
     <div class="max-w-5xl mx-auto px-6">
-      <div class="mb-10">
+      <div class="mb-8">
         <p class="text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-2">About Me</p>
         <h2 class="text-3xl font-bold tracking-tight text-zinc-900">Who I Am</h2>
       </div>
-      <div class="grid md:grid-cols-5 gap-14 items-start">
-        <div class="md:col-span-3 space-y-4 text-zinc-600 leading-relaxed text-[15px]">
+      <div class="grid md:grid-cols-5 gap-10 items-start">
+        <div class="md:col-span-3 space-y-3 text-zinc-600 leading-relaxed text-[15px]">
           <p>
             I build ML systems end-to-end, from raw data to working model. My first year
             at Georgia Tech's MS Analytics program produced three deployed projects spanning
@@ -129,40 +130,40 @@
   </section>
 
   <!-- ── EDUCATION ── -->
-  <section id="education" class="py-24 bg-zinc-50">
+  <section id="education" class="py-14 bg-zinc-50">
     <div class="max-w-5xl mx-auto px-6">
-      <div class="mb-10">
+      <div class="mb-8">
         <p class="text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-2">Academic Background</p>
         <h2 class="text-3xl font-bold tracking-tight text-zinc-900">Education</h2>
       </div>
-      <div class="space-y-4">
+      <div class="space-y-3">
 
-        <div class="bg-white border border-zinc-200 rounded-xl p-7">
+        <div class="bg-white border border-zinc-200 rounded-xl p-5">
           <div class="flex items-start justify-between gap-4 flex-wrap mb-1">
             <h3 class="font-semibold text-zinc-900">Master of Science in Analytics</h3>
             <span class="text-xs text-zinc-400 whitespace-nowrap mt-1">August 2025 – December 2026</span>
           </div>
-          <div class="flex items-center justify-between flex-wrap gap-2 mb-4">
+          <div class="flex items-center justify-between flex-wrap gap-2 mb-3">
             <p class="text-sm font-medium text-blue-600">Georgia Institute of Technology</p>
             <span class="text-sm text-zinc-400">Atlanta, GA</span>
           </div>
-          <span class="inline-block text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-md px-2.5 py-1 mb-4">GPA: 4.0</span>
+          <span class="inline-block text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-md px-2.5 py-1 mb-3">GPA: 4.0</span>
           <p class="text-sm text-zinc-500">
             Coursework: Computer Vision &middot; Data Analytics in Business &middot;
             Machine Learning &middot; Understanding Markets with Data Science
           </p>
         </div>
 
-        <div class="bg-white border border-zinc-200 rounded-xl p-7">
+        <div class="bg-white border border-zinc-200 rounded-xl p-5">
           <div class="flex items-start justify-between gap-4 flex-wrap mb-1">
             <h3 class="font-semibold text-zinc-900">Bachelor of Science in Computer Science</h3>
             <span class="text-xs text-zinc-400 whitespace-nowrap mt-1">September 2019 – May 2024</span>
           </div>
-          <div class="flex items-center justify-between flex-wrap gap-2 mb-4">
+          <div class="flex items-center justify-between flex-wrap gap-2 mb-3">
             <p class="text-sm font-medium text-blue-600">New York University — Tandon School of Engineering</p>
             <span class="text-sm text-zinc-400">New York City, NY</span>
           </div>
-          <span class="inline-block text-xs font-semibold bg-zinc-100 text-zinc-600 border border-zinc-200 rounded-md px-2.5 py-1 mb-4">Dean's List (2019–2020)</span>
+          <span class="inline-block text-xs font-semibold bg-zinc-100 text-zinc-600 border border-zinc-200 rounded-md px-2.5 py-1 mb-3">Dean's List (2019–2020)</span>
           <p class="text-sm text-zinc-500">Minors in Mathematics &amp; Finance</p>
           <p class="text-sm text-zinc-500 mt-2">
             Coursework: Artificial Intelligence &middot; Data Science &middot;
@@ -175,15 +176,15 @@
   </section>
 
   <!-- ── SKILLS ── -->
-  <section id="skills" class="py-24 bg-white">
+  <section id="skills" class="py-14 bg-white">
     <div class="max-w-5xl mx-auto px-6">
-      <div class="mb-10">
+      <div class="mb-8">
         <p class="text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-2">Technical Toolkit</p>
         <h2 class="text-3xl font-bold tracking-tight text-zinc-900">Skills</h2>
       </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
 
-        <div class="border border-zinc-200 rounded-xl p-6">
+        <div class="border border-zinc-200 rounded-xl p-5">
           <h3 class="text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-4">Languages</h3>
           <div class="flex flex-wrap gap-2">
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">Python</span>
@@ -196,7 +197,7 @@
           </div>
         </div>
 
-        <div class="border border-zinc-200 rounded-xl p-6">
+        <div class="border border-zinc-200 rounded-xl p-5">
           <h3 class="text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-4">Libraries</h3>
           <div class="flex flex-wrap gap-2">
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">PyTorch</span>
@@ -211,7 +212,7 @@
           </div>
         </div>
 
-        <div class="border border-zinc-200 rounded-xl p-6">
+        <div class="border border-zinc-200 rounded-xl p-5">
           <h3 class="text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-4">Tools</h3>
           <div class="flex flex-wrap gap-2">
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">Jupyter</span>
@@ -221,7 +222,7 @@
           </div>
         </div>
 
-        <div class="border border-zinc-200 rounded-xl p-6">
+        <div class="border border-zinc-200 rounded-xl p-5">
           <h3 class="text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-4">Certifications</h3>
           <div class="flex flex-wrap gap-2">
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">Machine Learning</span>
@@ -237,21 +238,21 @@
   </section>
 
   <!-- ── PROJECTS ── -->
-  <section id="projects" class="py-24 bg-zinc-50">
+  <section id="projects" class="py-14 bg-zinc-50">
     <div class="max-w-5xl mx-auto px-6">
-      <div class="mb-10">
+      <div class="mb-8">
         <p class="text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-2">Portfolio</p>
         <h2 class="text-3xl font-bold tracking-tight text-zinc-900">Projects</h2>
       </div>
-      <div class="grid md:grid-cols-3 gap-5">
+      <div class="grid md:grid-cols-3 gap-4">
 
         <!-- Project 1 -->
         <div class="bg-white border border-zinc-200 rounded-xl overflow-hidden flex flex-col hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
-          <div class="h-44 overflow-hidden bg-zinc-100">
+          <div class="h-36 overflow-hidden bg-zinc-100">
             <img src="assets/project-churn.png" alt="Churn Prediction"
                  class="w-full h-full object-cover" />
           </div>
-          <div class="p-6 flex flex-col flex-1">
+          <div class="p-5 flex flex-col flex-1">
             <p class="text-[11px] font-medium text-zinc-400 mb-2 uppercase tracking-wide">November 2025 &middot; Machine Learning</p>
             <h3 class="font-semibold text-zinc-900 text-sm leading-snug mb-3">
               Customer Churn Prediction &amp; Behavioral Segmentation
@@ -273,11 +274,11 @@
 
         <!-- Project 2 -->
         <div class="bg-white border border-zinc-200 rounded-xl overflow-hidden flex flex-col hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
-          <div class="h-44 overflow-hidden bg-zinc-100">
+          <div class="h-36 overflow-hidden bg-zinc-100">
             <img src="assets/project-segmentation.png" alt="Semantic Segmentation"
                  class="w-full h-full object-cover" />
           </div>
-          <div class="p-6 flex flex-col flex-1">
+          <div class="p-5 flex flex-col flex-1">
             <p class="text-[11px] font-medium text-zinc-400 mb-2 uppercase tracking-wide">October 2025 &middot; Computer Vision</p>
             <h3 class="font-semibold text-zinc-900 text-sm leading-snug mb-3">
               Semantic Segmentation for Urban Scene Understanding
@@ -299,11 +300,11 @@
 
         <!-- Project 3 -->
         <div class="bg-white border border-zinc-200 rounded-xl overflow-hidden flex flex-col hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
-          <div class="h-44 overflow-hidden bg-zinc-100">
+          <div class="h-36 overflow-hidden bg-zinc-100">
             <img src="assets/project-fraud.png" alt="Fraud Detection"
                  class="w-full h-full object-cover" />
           </div>
-          <div class="p-6 flex flex-col flex-1">
+          <div class="p-5 flex flex-col flex-1">
             <p class="text-[11px] font-medium text-zinc-400 mb-2 uppercase tracking-wide">September 2025 &middot; Unsupervised Learning</p>
             <h3 class="font-semibold text-zinc-900 text-sm leading-snug mb-3">
               Fraud Detection via Unsupervised Pattern Discovery
@@ -328,15 +329,15 @@
   </section>
 
   <!-- ── EXPERIENCE ── -->
-  <section id="experience" class="py-24 bg-white">
+  <section id="experience" class="py-14 bg-white">
     <div class="max-w-5xl mx-auto px-6">
-      <div class="mb-10">
+      <div class="mb-8">
         <p class="text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-2">Work History</p>
         <h2 class="text-3xl font-bold tracking-tight text-zinc-900">Experience</h2>
       </div>
-      <div class="space-y-4">
+      <div class="space-y-3">
 
-        <div class="bg-zinc-50 border border-zinc-200 rounded-xl p-7">
+        <div class="bg-zinc-50 border border-zinc-200 rounded-xl p-5">
           <div class="flex items-start justify-between gap-4 flex-wrap mb-1">
             <h3 class="font-semibold text-zinc-900">Frontend Development Intern</h3>
             <span class="text-xs text-zinc-400 whitespace-nowrap mt-1">June 2023 – August 2023</span>
@@ -367,7 +368,7 @@
   </section>
 
   <!-- ── CONTACT ── -->
-  <section id="contact" class="py-24 bg-zinc-950">
+  <section id="contact" class="py-14 bg-zinc-950">
     <div class="max-w-5xl mx-auto px-6 text-center">
       <p class="text-xs font-semibold tracking-widest uppercase text-zinc-500 mb-3">Get In Touch</p>
       <h2 class="text-3xl font-bold tracking-tight text-white mb-4">Contact</h2>
@@ -415,6 +416,13 @@
   </footer>
 
   <script>
+    const bar = document.getElementById('scrollBar');
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const pct = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+      bar.style.width = pct + '%';
+    });
+
     const toggle = document.getElementById('navToggle');
     const menu   = document.getElementById('mobileMenu');
     toggle.addEventListener('click', () => menu.classList.toggle('hidden'));
