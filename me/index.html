@@ -90,7 +90,7 @@
   <!-- ── NAV ── -->
   <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-zinc-200 z-50">
     <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-      <span class="font-semibold text-sm text-zinc-900 tracking-tight">Rishikesh Donthula</span>
+      <a href="https://rdonthula.com" class="font-semibold text-sm text-zinc-900 tracking-tight hover:text-zinc-600 transition-colors">Rishikesh Donthula</a>
       <button id="navToggle" class="md:hidden flex flex-col gap-1.5 p-1" aria-label="Toggle menu">
         <span class="block w-5 h-0.5 bg-zinc-700 rounded"></span>
         <span class="block w-5 h-0.5 bg-zinc-700 rounded"></span>
@@ -144,11 +144,8 @@
             </svg>
           </a>
           <div class="flex items-center gap-2 mt-5">
-            <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-70"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            <span class="text-xs text-zinc-400">Open to full-time &amp; internship opportunities</span>
+            <span class="inline-block text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-emerald-700 text-emerald-400 tracking-wide" style="background:rgba(6,78,59,0.22)">open</span>
+            <span class="text-xs text-zinc-400">to full-time &amp; internship opportunities</span>
           </div>
         </div>
       </div>
@@ -159,7 +156,7 @@
   <div id="stats" class="bg-zinc-950 border-t border-zinc-800">
     <div class="max-w-5xl mx-auto px-6 py-5 grid grid-cols-2 sm:grid-cols-5 gap-y-5 gap-x-4 text-center">
       <div class="fade-in flex flex-col items-center justify-center">
-        <p class="text-4xl leading-none">🇺🇸</p>
+        <p class="text-4xl leading-none">🇺🇸 🇮🇳</p>
       </div>
       <div class="fade-in" style="transition-delay:0.07s">
         <p class="text-2xl font-extrabold text-white stat-num" data-val="4">4</p>
@@ -226,13 +223,22 @@
             <h3 class="font-semibold text-zinc-900 text-sm leading-snug">Master of Science in Analytics</h3>
             <p class="text-[11px] text-zinc-400 mb-3">Aug 2025 – Dec 2026</p>
             <div class="flex items-center gap-3">
-              <img src="/assets/logo-gt-padded.png" alt="Georgia Tech" class="h-12 w-auto shrink-0 object-contain" />
+              <img src="/assets/logo-gt-padded.png" alt="Georgia Tech" class="h-16 w-16 shrink-0 object-cover object-center rounded-sm" />
               <div class="space-y-1">
                 <p class="font-semibold text-zinc-900 text-xs">Georgia Institute of Technology</p>
                 <p class="text-xs text-zinc-500">Atlanta, GA</p>
                 <p>
                   <span id="gpa-badge" class="inline-block text-sm font-bold px-2 py-0.5 rounded-md" style="background:#a18b5a;color:#ffffff">GPA <span id="about-gpa" data-val="4.0" data-float="1">4.0</span></span>
                 </p>
+              </div>
+            </div>
+            <div class="mt-3 pt-3 border-t border-zinc-100">
+              <p class="text-[10px] font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Coursework</p>
+              <div class="flex flex-wrap gap-1">
+                <span class="text-[10px] bg-zinc-100 text-zinc-600 px-1.5 py-0.5 rounded font-medium">Machine Learning</span>
+                <span class="text-[10px] bg-zinc-100 text-zinc-600 px-1.5 py-0.5 rounded font-medium">Computer Vision</span>
+                <span class="text-[10px] bg-zinc-100 text-zinc-600 px-1.5 py-0.5 rounded font-medium">Data Analytics in Business</span>
+                <span class="text-[10px] bg-zinc-100 text-zinc-600 px-1.5 py-0.5 rounded font-medium">Understanding Markets with Data Science</span>
               </div>
             </div>
           </div>
@@ -249,6 +255,16 @@
                 <p class="text-xs text-zinc-500">New York City, NY</p>
                 <p class="text-xs text-zinc-500">Minors: Mathematics &amp; <span class="font-bold px-1 py-0.5 rounded text-[10px]" style="background:#57068c;color:#ffffff">Finance</span></p>
                 <p><span class="text-[10px] font-bold px-1 py-0.5 rounded" style="background:#57068c;color:white;border:1px solid #400066">Dean's List</span></p>
+              </div>
+            </div>
+            <div class="mt-3 pt-3 border-t border-zinc-100">
+              <p class="text-[10px] font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Coursework</p>
+              <div class="flex flex-wrap gap-1">
+                <span class="text-[10px] bg-zinc-100 text-zinc-600 px-1.5 py-0.5 rounded font-medium">Artificial Intelligence</span>
+                <span class="text-[10px] bg-zinc-100 text-zinc-600 px-1.5 py-0.5 rounded font-medium">Data Science</span>
+                <span class="text-[10px] bg-zinc-100 text-zinc-600 px-1.5 py-0.5 rounded font-medium">Databases</span>
+                <span class="text-[10px] bg-zinc-100 text-zinc-600 px-1.5 py-0.5 rounded font-medium">Data Analysis</span>
+                <span class="text-[10px] bg-zinc-100 text-zinc-600 px-1.5 py-0.5 rounded font-medium">Multivariate Calculus</span>
               </div>
             </div>
           </div>
@@ -492,9 +508,9 @@
           <div class="flex items-center justify-between flex-wrap gap-2 mb-4">
             <p class="text-sm font-semibold text-zinc-900">
               <a href="https://gofloaters.com" target="_blank" rel="noopener"
-                 class="text-blue-600 underline underline-offset-2 hover:text-blue-700 transition-colors">GoFloaters ↗</a>
+                 class="text-blue-600 underline underline-offset-2 hover:text-blue-700 transition-colors">GoFloaters↗</a>
             </p>
-            <span class="text-sm text-zinc-400">Chennai, India</span>
+            <span class="text-sm text-zinc-400 w-full sm:w-auto">Chennai, India</span>
           </div>
           <p class="text-xs text-zinc-400 italic mb-4">React Native &middot; JavaScript &middot; Git</p>
           <ul class="space-y-2.5 text-sm text-zinc-500">
@@ -518,9 +534,9 @@
   </section>
 
   <!-- ── QUOTE ── -->
-  <div class="bg-zinc-950 py-10 border-t border-zinc-800">
-    <div class="max-w-xl mx-auto px-6 text-center">
-      <p class="text-xl md:text-2xl font-semibold text-white leading-snug">
+  <div class="bg-zinc-900 py-10 border-t border-b border-zinc-800">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <p class="text-xl md:text-2xl font-semibold text-white leading-snug md:whitespace-nowrap">
         <span class="text-blue-500 text-3xl leading-none align-top">&ldquo;</span>It always seems impossible until it&rsquo;s done.<span class="text-blue-500 text-3xl leading-none align-bottom">&rdquo;</span>
       </p>
       <p class="mt-3 text-xs text-zinc-500 tracking-widest uppercase font-medium">— Nelson Mandela</p>
