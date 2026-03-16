@@ -257,7 +257,7 @@
             <h3 class="font-semibold text-zinc-900 text-sm leading-snug">Bachelor of Science in Computer Science</h3>
             <p class="text-[11px] text-zinc-400 mb-3">Sep 2019 – May 2024</p>
             <div class="flex items-center gap-3">
-              <img src="/assets/logo-nyu.png" alt="NYU" class="h-12 w-auto shrink-0 object-contain" />
+              <img src="/assets/logo-nyu.png" alt="NYU" class="h-12 w-12 shrink-0 object-cover object-center rounded-sm" />
               <div class="space-y-1">
                 <p class="font-semibold text-zinc-900 text-xs">New York University</p>
                 <p class="text-xs text-zinc-500">New York City, NY</p>
@@ -359,7 +359,7 @@
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">Time Series</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">Clustering</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">JWT Auth</span>
-            <span class="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-md" style="background:#fef9e7;color:#00274C;border:1px solid #FFCB05">
+            <span class="inline-flex self-start items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-md" style="background:#fef9e7;color:#00274C;border:1px solid #FFCB05">
               <img src="/assets/logo-michigan.png" alt="Michigan" class="h-5 w-auto shrink-0" />
               <span class="flex flex-col leading-tight">
                 <span>Applied Data Science</span>
@@ -701,28 +701,21 @@
                 requestAnimationFrame(tick);
               } else {
                 entry.target.textContent = target.toFixed(1);
-                if (badge) setTimeout(() => badge.classList.add('gpa-pop'), 220);
+                if (badge) setTimeout(() => {
+                  badge.classList.add('gpa-pop');
+                  // Chain NYU badges sequentially after GPA pop
+                  const fb = document.getElementById('finance-badge');
+                  const db = document.getElementById('deans-badge');
+                  if (fb) setTimeout(() => fb.classList.add('nyu-pop'), 450);
+                  if (db) setTimeout(() => db.classList.add('nyu-pop'), 720);
+                }, 220);
               }
             })(start);
           }
         });
       }, { threshold: 0.5 }).observe(aboutGpaEl);
     }
-    // ── NYU badge pop (Finance + Dean's List) ──
-    const financeBadge = document.getElementById('finance-badge');
-    const deansBadge   = document.getElementById('deans-badge');
-    if (financeBadge && deansBadge) {
-      let nyuPopped = false;
-      new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && !nyuPopped) {
-            nyuPopped = true;
-            setTimeout(() => financeBadge.classList.add('nyu-pop'), 300);
-            setTimeout(() => deansBadge.classList.add('nyu-pop'),   550);
-          }
-        });
-      }, { threshold: 0.6 }).observe(deansBadge.closest('.border.border-zinc-200'));
-    }
+
     const statsEl = document.getElementById('stats');
     if (statsEl) {
       const statObserver = new IntersectionObserver((entries) => {
