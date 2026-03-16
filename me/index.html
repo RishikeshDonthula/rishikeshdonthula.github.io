@@ -111,7 +111,7 @@
         <li><a href="#projects"   class="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Projects</a></li>
         <li><a href="#experience" class="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Experience</a></li>
         <li><a href="#contact"    class="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Contact</a></li>
-        <li><a href="/resume" target="_blank" rel="noopener" class="text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors">Résumé↗</a></li>
+        <li><a href="#resume" class="text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors">Résumé</a></li>
       </ul>
     </div>
     <div id="mobileMenu" class="hidden md:hidden border-t border-zinc-200 bg-white">
@@ -122,7 +122,7 @@
         <a href="#projects"   class="py-2.5 text-sm text-zinc-600 hover:text-zinc-900 border-b border-zinc-100">Projects</a>
         <a href="#experience" class="py-2.5 text-sm text-zinc-600 hover:text-zinc-900 border-b border-zinc-100">Experience</a>
         <a href="#contact"    class="py-2.5 text-sm text-zinc-600 hover:text-zinc-900 border-b border-zinc-100">Contact</a>
-        <a href="/resume" target="_blank" rel="noopener" class="py-2.5 text-sm font-semibold text-blue-600 hover:text-blue-700">Résumé↗</a>
+        <a href="#resume" class="py-2.5 text-sm font-semibold text-blue-600 hover:text-blue-700">Résumé</a>
       </div>
     </div>
   </nav>
@@ -255,12 +255,15 @@
             <h3 class="font-semibold text-zinc-900 text-sm leading-snug">Bachelor of Science in Computer Science</h3>
             <p class="text-[11px] text-zinc-400 mb-3">Sep 2019 – May 2024</p>
             <div class="flex items-center gap-3">
-              <img src="/assets/logo-nyu.png" alt="NYU" class="h-12 w-12 shrink-0 object-cover object-top rounded-sm" />
+              <img src="/assets/logo-nyu.png" alt="NYU" class="h-16 w-16 shrink-0 object-cover object-top rounded-sm" />
               <div class="space-y-1">
                 <p class="font-semibold text-zinc-900 text-xs">New York University</p>
                 <p class="text-xs text-zinc-500">New York City, NY</p>
-                <p class="text-xs text-zinc-500">Minors: Mathematics &amp; <span id="finance-badge" class="inline-block font-bold px-1 py-0.5 rounded text-[10px]" style="background:#57068c;color:#ffffff">Finance</span></p>
-                <p><span id="deans-badge" class="inline-block text-[10px] font-bold px-1 py-0.5 rounded" style="background:#57068c;color:white;border:1px solid #400066">Dean's List</span></p>
+                <p class="flex flex-wrap items-center gap-1">
+                  <span id="deans-badge" class="inline-block text-[10px] font-bold px-1 py-0.5 rounded" style="background:#57068c;color:white;border:1px solid #400066">Dean's List</span>
+                  <span class="text-zinc-400 text-[10px]">·</span>
+                  <span class="text-[10px] text-zinc-500">Math &amp; <span id="finance-badge" class="inline-block font-bold px-1 py-0.5 rounded" style="background:#57068c;color:#ffffff">Finance</span></span>
+                </p>
               </div>
             </div>
             <div class="mt-3 pt-3 border-t border-zinc-100">
@@ -538,16 +541,6 @@
     </div>
   </section>
 
-  <!-- ── QUOTE ── -->
-  <div class="bg-zinc-900 py-10 border-t border-b border-zinc-800">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-      <p class="text-xl md:text-2xl font-semibold text-white leading-snug md:whitespace-nowrap">
-        <span class="text-blue-500 text-3xl leading-none align-top">&ldquo;</span>It always seems impossible until it&rsquo;s done.<span class="text-blue-500 text-3xl leading-none align-bottom">&rdquo;</span>
-      </p>
-      <p class="mt-3 text-xs text-zinc-500 tracking-widest uppercase font-medium">— Nelson Mandela</p>
-    </div>
-  </div>
-
   <!-- ── CONTACT ── -->
   <section id="contact" class="py-14 bg-zinc-950">
     <div class="max-w-5xl mx-auto px-6 text-center">
@@ -564,8 +557,10 @@
         <span class="text-xs font-semibold px-3 py-1.5 rounded-full border border-blue-700 text-blue-300" style="background: rgba(37,99,235,0.15)">
           Full-time &middot; Starting Dec 2026
         </span>
+        <span class="text-xs font-semibold px-3 py-1.5 rounded-full border border-blue-700 text-blue-300" style="background: rgba(37,99,235,0.15)">
+          🇺🇸 US Citizen &middot; No sponsorship required
+        </span>
       </div>
-      <p class="text-xs text-zinc-500 mb-6">🇺🇸 US Citizen &middot; No sponsorship required</p>
       <div class="flex flex-wrap justify-center gap-3">
 
         <a href="mailto:rdonthula@gatech.edu"
@@ -596,25 +591,45 @@
           GitHub
         </a>
 
-        <a href="/resume" target="_blank" rel="noopener"
-           class="inline-flex items-center gap-2.5 px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-500 transition-colors">
-          <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-            <polyline points="14 2 14 8 20 8"/>
-            <line x1="16" y1="13" x2="8" y2="13"/>
-            <line x1="16" y1="17" x2="8" y2="17"/>
-            <polyline points="10 9 9 9 8 9"/>
-          </svg>
-          Résumé
-        </a>
-
       </div>
     </div>
   </section>
 
+  <!-- ── RESUME ── -->
+  <section id="resume" class="py-14 bg-zinc-950 border-t border-zinc-800">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <p class="text-xs font-semibold tracking-widest uppercase text-zinc-500 mb-3">Full CV</p>
+      <h2 class="text-3xl font-bold tracking-tight text-white mb-4">Résumé</h2>
+      <p class="text-zinc-400 max-w-sm mx-auto mb-8 text-base leading-relaxed">
+        One page. Everything that matters.
+      </p>
+      <a href="/resume" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2.5 px-6 py-3 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-500 transition-colors">
+        <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+          <polyline points="10 9 9 9 8 9"/>
+        </svg>
+        View Résumé↗
+      </a>
+    </div>
+  </section>
+
+  <!-- ── QUOTE ── -->
+  <div class="bg-zinc-900 py-10 border-t border-zinc-800">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <p class="text-xl md:text-2xl font-semibold text-white leading-snug md:whitespace-nowrap">
+        <span class="text-blue-500 text-3xl leading-none align-top">&ldquo;</span>It always seems impossible until it&rsquo;s done.<span class="text-blue-500 text-3xl leading-none align-bottom">&rdquo;</span>
+      </p>
+      <p class="mt-3 text-xs text-zinc-500 tracking-widest uppercase font-medium">— Nelson Mandela</p>
+    </div>
+  </div>
+
   <!-- ── FOOTER ── -->
   <footer class="bg-zinc-950 border-t border-zinc-800 py-6 text-center">
-    <p class="text-sm text-zinc-600">&copy; 2026 Rishikesh Donthula &middot; Built with care.</p>
+    <p class="text-sm text-zinc-600">&copy; 2026 Rishikesh Donthula</p>
   </footer>
 
   <script>
