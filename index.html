@@ -39,7 +39,7 @@
     }
     #scroll-pill {
       position: fixed; left: 10px; top: 0;
-      background: #6366f1;
+      background: #3b82f6;
       color: #fff;
       font-size: 10px; font-weight: 700; font-family: 'Inter', sans-serif;
       padding: 3px 7px 3px 6px;
@@ -90,7 +90,6 @@
       <ul class="hidden md:flex gap-7 list-none">
         <li><a href="#home"       class="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Home</a></li>
         <li><a href="#about"      class="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">About</a></li>
-        <li><a href="#education"  class="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Education</a></li>
         <li><a href="#skills"     class="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Skills</a></li>
         <li><a href="#projects"   class="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Projects</a></li>
         <li><a href="#experience" class="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Experience</a></li>
@@ -101,7 +100,6 @@
       <div class="px-6 py-2 flex flex-col">
         <a href="#home"       class="py-2.5 text-sm text-zinc-600 hover:text-zinc-900 border-b border-zinc-100">Home</a>
         <a href="#about"      class="py-2.5 text-sm text-zinc-600 hover:text-zinc-900 border-b border-zinc-100">About</a>
-        <a href="#education"  class="py-2.5 text-sm text-zinc-600 hover:text-zinc-900 border-b border-zinc-100">Education</a>
         <a href="#skills"     class="py-2.5 text-sm text-zinc-600 hover:text-zinc-900 border-b border-zinc-100">Skills</a>
         <a href="#projects"   class="py-2.5 text-sm text-zinc-600 hover:text-zinc-900 border-b border-zinc-100">Projects</a>
         <a href="#experience" class="py-2.5 text-sm text-zinc-600 hover:text-zinc-900 border-b border-zinc-100">Experience</a>
@@ -151,8 +149,7 @@
   <div id="stats" class="bg-zinc-950 border-t border-zinc-800">
     <div class="max-w-5xl mx-auto px-6 py-5 grid grid-cols-2 sm:grid-cols-5 gap-y-5 gap-x-4 text-center">
       <div class="fade-in">
-        <p class="text-3xl leading-none">🇺🇸</p>
-        <p class="text-[10px] font-semibold uppercase tracking-widest text-zinc-500 mt-1">US Citizen</p>
+        <p class="text-4xl leading-none">🇺🇸</p>
       </div>
       <div class="fade-in" style="transition-delay:0.07s">
         <p class="text-2xl font-extrabold text-white stat-num" data-val="3">3</p>
@@ -179,116 +176,76 @@
     </div>
   </div>
 
-  <!-- ── ABOUT ── -->
+  <!-- ── ABOUT + EDUCATION (merged) ── -->
   <section id="about" class="py-14 bg-white">
     <div class="max-w-5xl mx-auto px-6">
       <div class="mb-8">
         <p class="text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-2">About Me</p>
         <h2 class="text-3xl font-bold tracking-tight text-zinc-900">Who I Am</h2>
       </div>
-      <div class="grid md:grid-cols-5 gap-10 items-start">
-        <div class="md:col-span-3 space-y-3 text-zinc-600 leading-relaxed text-[15px] fade-in">
-          <p>
-            I build ML systems end-to-end, from raw data to working model. My first year
-            at Georgia Tech's MS Analytics program produced three deployed projects spanning
-            churn prediction, computer vision, and unsupervised fraud detection. I'm carrying
-            a 4.0.
-          </p>
-          <p>
-            My background combines computer science, mathematics, and finance. I can write
-            the query, build the model, and understand what the output actually means for a business.
-          </p>
-          <!-- Von Restorff: isolated callout gets remembered -->
-          <blockquote class="border-l-2 border-blue-500 pl-4 py-0.5 text-zinc-800 font-semibold text-[15px]">
-            That combination doesn't come standard.
-          </blockquote>
-          <p>
-            Outside of work, I follow financial markets closely and spend time on ML research.
-            I tend to gravitate toward problems where the math is interesting and the stakes
-            are real.
-          </p>
-        </div>
-        <div class="md:col-span-2 space-y-3 fade-in" style="transition-delay:0.12s">
-          <div class="border border-zinc-200 rounded-xl p-4">
-            <div class="flex items-center gap-3">
-              <img src="assets/logo-gt-padded.png" alt="Georgia Tech" class="w-11 h-16 shrink-0 object-contain" />
-              <div>
-                <p class="text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-0.5">Graduate</p>
-                <p class="font-semibold text-zinc-900 text-sm">Georgia Institute of Technology</p>
-                <p class="text-sm text-zinc-500 mt-1">MS Analytics &middot; <span class="text-xs font-bold px-1.5 py-0.5 rounded-md" style="background:#B3A369;color:#ffffff">GPA <span id="about-gpa" data-val="4.0" data-float="1">4.0</span></span></p>
-                <p class="text-sm text-zinc-500 mt-0.5">Aug 2025 – Dec 2026</p>
-              </div>
-            </div>
-          </div>
-          <div class="border border-zinc-200 rounded-xl p-4">
-            <div class="flex items-center gap-3">
-              <img src="assets/logo-nyu.png" alt="NYU" class="w-11 h-16 shrink-0 object-contain" />
-              <div>
-                <p class="text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-0.5">Undergraduate</p>
-                <p class="font-semibold text-zinc-900 text-sm">New York University</p>
-                <p class="text-sm text-zinc-500 mt-1">BS Computer Science</p>
-                <p class="text-sm text-zinc-500 mt-0.5">Minors in Mathematics &amp; <span class="text-xs font-bold px-1.5 py-0.5 rounded-md" style="background:#57068c;color:#ffffff">Finance</span></p>
-              </div>
-            </div>
-          </div>
-          <div class="border border-zinc-200 rounded-xl p-5">
-            <p class="text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Focus Areas</p>
-            <p class="text-sm text-zinc-500 leading-relaxed">
-              Machine Learning &middot; Risk Modeling &middot; Statistical Analysis &middot; Computer Vision
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ── EDUCATION ── -->
-  <section id="education" class="py-14 bg-zinc-50">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="mb-8">
-        <p class="text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-2">Academic Background</p>
-        <h2 class="text-3xl font-bold tracking-tight text-zinc-900">Education</h2>
+      <!-- Bio text -->
+      <div class="max-w-2xl mb-10 space-y-3 text-zinc-600 leading-relaxed text-[15px] fade-in">
+        <p>
+          I build ML systems end-to-end, from raw data to working model. My first year
+          at Georgia Tech's MS Analytics program produced three deployed projects spanning
+          churn prediction, computer vision, and unsupervised fraud detection. I'm carrying
+          a 4.0.
+        </p>
+        <p>
+          My background combines computer science, mathematics, and finance. I can write
+          the query, build the model, and understand what the output actually means for a business.
+        </p>
+        <!-- Von Restorff: isolated callout gets remembered -->
+        <blockquote class="border-l-2 border-blue-500 pl-4 py-0.5 text-zinc-800 font-semibold text-[15px]">
+          That combination doesn't come standard.
+        </blockquote>
+        <p>
+          Outside of work, I follow financial markets closely and spend time on ML research.
+          I tend to gravitate toward problems where the math is interesting and the stakes
+          are real.
+        </p>
       </div>
-      <div class="space-y-3">
 
-        <div class="bg-white border border-zinc-200 rounded-xl p-5 fade-in">
-          <div class="flex items-start justify-between gap-4 flex-wrap mb-1">
+      <!-- Education cards -->
+      <div class="grid md:grid-cols-2 gap-4">
+
+        <!-- Georgia Tech -->
+        <div class="border border-zinc-200 rounded-xl p-5 fade-in">
+          <div class="flex items-start justify-between gap-2 flex-wrap mb-4">
             <h3 class="font-semibold text-zinc-900">Master of Science in Analytics</h3>
-            <span class="text-xs text-zinc-400 whitespace-nowrap mt-1">August 2025 – December 2026</span>
+            <span class="text-xs text-zinc-400 whitespace-nowrap mt-0.5">Aug 2025 – Dec 2026</span>
           </div>
-          <div class="flex items-center justify-between flex-wrap gap-2 mb-3">
-            <div class="flex items-center gap-2">
-              <img src="assets/logo-gt-padded.png" alt="Georgia Tech" class="h-8 w-auto shrink-0 object-contain" />
-              <p class="text-sm font-semibold text-zinc-900">Georgia Institute of Technology</p>
+          <div class="flex items-center gap-4">
+            <img src="assets/logo-gt.png" alt="Georgia Tech"
+                 class="h-12 w-auto shrink-0 object-contain" />
+            <div class="text-sm text-zinc-500 space-y-1 min-w-0">
+              <p class="font-semibold text-zinc-900">Georgia Institute of Technology</p>
+              <p>Atlanta, GA</p>
+              <p>
+                <span class="text-xs font-bold px-1.5 py-0.5 rounded-md" style="background:#a18b5a;color:#ffffff">GPA <span id="about-gpa" data-val="4.0" data-float="1">4.0</span></span>
+              </p>
+              <p class="text-xs text-zinc-400 leading-relaxed">Computer Vision &middot; Machine Learning &middot; Analytics Modeling &middot; Data &amp; Visual Analytics</p>
             </div>
-            <span class="text-sm text-zinc-400">Atlanta, GA</span>
           </div>
-          <span class="inline-block text-xs font-semibold rounded-md px-2.5 py-1 mb-3" style="background:#B3A369;color:#ffffff;border:1px solid #8d7d48">GPA: 4.0</span>
-          <p class="text-sm text-zinc-500">
-            Coursework: Computer Vision &middot; Machine Learning &middot;
-            Analytics Modeling &middot; Data &amp; Visual Analytics &middot;
-            Understanding Markets with Data Science
-          </p>
         </div>
 
-        <div class="bg-white border border-zinc-200 rounded-xl p-5 fade-in" style="transition-delay:0.1s">
-          <div class="flex items-start justify-between gap-4 flex-wrap mb-1">
+        <!-- NYU -->
+        <div class="border border-zinc-200 rounded-xl p-5 fade-in" style="transition-delay:0.1s">
+          <div class="flex items-start justify-between gap-2 flex-wrap mb-4">
             <h3 class="font-semibold text-zinc-900">Bachelor of Science in Computer Science</h3>
-            <span class="text-xs text-zinc-400 whitespace-nowrap mt-1">September 2019 – May 2024</span>
+            <span class="text-xs text-zinc-400 whitespace-nowrap mt-0.5">Sep 2019 – May 2024</span>
           </div>
-          <div class="flex items-center justify-between flex-wrap gap-2 mb-3">
-            <div class="flex items-center gap-2">
-              <img src="assets/logo-nyu.png" alt="NYU" class="h-8 w-auto shrink-0 object-contain" />
-              <p class="text-sm font-semibold text-zinc-900">New York University</p>
+          <div class="flex items-center gap-4">
+            <img src="assets/logo-nyu.png" alt="NYU"
+                 class="h-12 w-auto shrink-0 object-contain" />
+            <div class="text-sm text-zinc-500 space-y-1 min-w-0">
+              <p class="font-semibold text-zinc-900">New York University</p>
+              <p>New York City, NY</p>
+              <p>Minors: Mathematics &amp; <span class="text-xs font-bold px-1.5 py-0.5 rounded-md" style="background:#57068c;color:#ffffff">Finance</span></p>
+              <p><span class="text-xs font-bold px-1.5 py-0.5 rounded-md" style="background:#57068c;color:white;border:1px solid #400066">Dean's List 2019–2020</span></p>
             </div>
-            <span class="text-sm text-zinc-400">New York City, NY</span>
           </div>
-          <span class="inline-block text-xs font-semibold rounded-md px-2.5 py-1 mb-3" style="background:#57068c;color:white;border:1px solid #400066">Dean's List (2019–2020)</span>
-          <p class="text-sm text-zinc-500">Minors in Mathematics &amp; <span class="text-xs font-semibold px-2 py-0.5 rounded-md" style="background:#57068c;color:white;border:1px solid #400066">Finance</span></p>
-          <p class="text-sm text-zinc-500 mt-2">
-            Coursework: Artificial Intelligence &middot; Data Science &middot;
-            Databases &middot; Data Analysis &middot; Multivariate Calculus
-          </p>
         </div>
 
       </div>
@@ -307,9 +264,9 @@
         <div class="border border-zinc-200 rounded-xl p-5 fade-in">
           <h3 class="text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-4">Languages</h3>
           <div class="flex flex-wrap gap-2">
-            <span class="bg-amber-50 text-amber-800 border border-amber-200 text-xs font-medium px-2.5 py-1 rounded-md">Python</span>
+            <span class="bg-blue-50 text-blue-700 border border-blue-100 text-xs font-medium px-2.5 py-1 rounded-md">Python</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">R</span>
-            <span class="bg-amber-50 text-amber-800 border border-amber-200 text-xs font-medium px-2.5 py-1 rounded-md">SQL</span>
+            <span class="bg-blue-50 text-blue-700 border border-blue-100 text-xs font-medium px-2.5 py-1 rounded-md">SQL</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">C++</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">JavaScript</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">HTML</span>
@@ -320,20 +277,20 @@
         <div class="border border-zinc-200 rounded-xl p-5 fade-in">
           <h3 class="text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-4">Libraries</h3>
           <div class="flex flex-wrap gap-2">
-            <span class="bg-amber-50 text-amber-800 border border-amber-200 text-xs font-medium px-2.5 py-1 rounded-md">PyTorch</span>
+            <span class="bg-blue-50 text-blue-700 border border-blue-100 text-xs font-medium px-2.5 py-1 rounded-md">PyTorch</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">scikit-learn</span>
-            <span class="bg-amber-50 text-amber-800 border border-amber-200 text-xs font-medium px-2.5 py-1 rounded-md">pandas</span>
+            <span class="bg-blue-50 text-blue-700 border border-blue-100 text-xs font-medium px-2.5 py-1 rounded-md">pandas</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">NumPy</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">SciPy</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">Matplotlib</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">seaborn</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">OpenCV</span>
-            <span class="bg-amber-50 text-amber-800 border border-amber-200 text-xs font-medium px-2.5 py-1 rounded-md">CatBoost</span>
+            <span class="bg-blue-50 text-blue-700 border border-blue-100 text-xs font-medium px-2.5 py-1 rounded-md">CatBoost</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">XGBoost</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">LightGBM</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">Flask</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">React Native</span>
-            <span class="bg-amber-50 text-amber-800 border border-amber-200 text-xs font-medium px-2.5 py-1 rounded-md">D3.js</span>
+            <span class="bg-blue-50 text-blue-700 border border-blue-100 text-xs font-medium px-2.5 py-1 rounded-md">D3.js</span>
           </div>
         </div>
 
@@ -344,10 +301,10 @@
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">Git</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">GitHub</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">Hadoop</span>
-            <span class="bg-amber-50 text-amber-800 border border-amber-200 text-xs font-medium px-2.5 py-1 rounded-md">Apache Spark</span>
-            <span class="bg-amber-50 text-amber-800 border border-amber-200 text-xs font-medium px-2.5 py-1 rounded-md">AWS</span>
-            <span class="bg-amber-50 text-amber-800 border border-amber-200 text-xs font-medium px-2.5 py-1 rounded-md">GCP</span>
-            <span class="bg-amber-50 text-amber-800 border border-amber-200 text-xs font-medium px-2.5 py-1 rounded-md">Azure</span>
+            <span class="bg-blue-50 text-blue-700 border border-blue-100 text-xs font-medium px-2.5 py-1 rounded-md">Apache Spark</span>
+            <span class="bg-blue-50 text-blue-700 border border-blue-100 text-xs font-medium px-2.5 py-1 rounded-md">AWS</span>
+            <span class="bg-blue-50 text-blue-700 border border-blue-100 text-xs font-medium px-2.5 py-1 rounded-md">GCP</span>
+            <span class="bg-blue-50 text-blue-700 border border-blue-100 text-xs font-medium px-2.5 py-1 rounded-md">Azure</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">SQLite</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">OpenRefine</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">MS Project</span>
@@ -360,9 +317,9 @@
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">PCA / SVD</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">SVM</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">Random Forest</span>
-            <span class="bg-amber-50 text-amber-800 border border-amber-200 text-xs font-medium px-2.5 py-1 rounded-md">Transfer Learning</span>
+            <span class="bg-blue-50 text-blue-700 border border-blue-100 text-xs font-medium px-2.5 py-1 rounded-md">Transfer Learning</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">RANSAC</span>
-            <span class="bg-amber-50 text-amber-800 border border-amber-200 text-xs font-medium px-2.5 py-1 rounded-md">Transformers</span>
+            <span class="bg-blue-50 text-blue-700 border border-blue-100 text-xs font-medium px-2.5 py-1 rounded-md">Transformers</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">NeRF</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">SMOTE</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">TF-IDF / LSI</span>
@@ -409,10 +366,10 @@
             </p>
             <div class="flex flex-wrap gap-1.5">
               <span class="text-[11px] bg-zinc-100 text-zinc-600 px-2 py-0.5 rounded font-medium">Python</span>
-              <span class="text-[11px] bg-amber-50 text-amber-800 border border-amber-200 px-2 py-0.5 rounded font-medium">CatBoost</span>
-              <span class="text-[11px] bg-amber-50 text-amber-800 border border-amber-200 px-2 py-0.5 rounded font-medium">XGBoost</span>
-              <span class="text-[11px] bg-amber-50 text-amber-800 border border-amber-200 px-2 py-0.5 rounded font-medium">scikit-learn</span>
-              <span class="text-[11px] bg-amber-50 text-amber-800 border border-amber-200 px-2 py-0.5 rounded font-medium">pandas</span>
+              <span class="text-[11px] bg-blue-50 text-blue-700 border border-blue-100 px-2 py-0.5 rounded font-medium">CatBoost</span>
+              <span class="text-[11px] bg-blue-50 text-blue-700 border border-blue-100 px-2 py-0.5 rounded font-medium">XGBoost</span>
+              <span class="text-[11px] bg-blue-50 text-blue-700 border border-blue-100 px-2 py-0.5 rounded font-medium">scikit-learn</span>
+              <span class="text-[11px] bg-blue-50 text-blue-700 border border-blue-100 px-2 py-0.5 rounded font-medium">pandas</span>
             </div>
           </div>
         </div>
@@ -435,7 +392,7 @@
               transfer learning. Compared baselines against PSPNet with dilated convolutions.
             </p>
             <div class="flex flex-wrap gap-1.5">
-              <span class="text-[11px] bg-amber-50 text-amber-800 border border-amber-200 px-2 py-0.5 rounded font-medium">PyTorch</span>
+              <span class="text-[11px] bg-blue-50 text-blue-700 border border-blue-100 px-2 py-0.5 rounded font-medium">PyTorch</span>
               <span class="text-[11px] bg-zinc-100 text-zinc-600 px-2 py-0.5 rounded font-medium">OpenCV</span>
               <span class="text-[11px] bg-zinc-100 text-zinc-600 px-2 py-0.5 rounded font-medium">PSPNet</span>
               <span class="text-[11px] bg-zinc-100 text-zinc-600 px-2 py-0.5 rounded font-medium">Python</span>
@@ -465,7 +422,7 @@
               <span class="text-[11px] bg-zinc-100 text-zinc-600 px-2 py-0.5 rounded font-medium">Python</span>
               <span class="text-[11px] bg-zinc-100 text-zinc-600 px-2 py-0.5 rounded font-medium">K-Means</span>
               <span class="text-[11px] bg-zinc-100 text-zinc-600 px-2 py-0.5 rounded font-medium">GMM</span>
-              <span class="text-[11px] bg-amber-50 text-amber-800 border border-amber-200 px-2 py-0.5 rounded font-medium">scikit-learn</span>
+              <span class="text-[11px] bg-blue-50 text-blue-700 border border-blue-100 px-2 py-0.5 rounded font-medium">scikit-learn</span>
               <span class="text-[11px] bg-zinc-100 text-zinc-600 px-2 py-0.5 rounded font-medium">Matplotlib</span>
             </div>
           </div>
@@ -583,8 +540,8 @@
       pill.style.top = (pct * (window.innerHeight - 26)) + 'px';
       pill.textContent = pctInt + '%';
       pill.style.opacity = pct > 0.01 ? '1' : '0';
-      const hue = Math.round(230 + pct * 40);
-      pill.style.background = 'hsl(' + hue + ',89%,60%)';
+      // Interpolate between #3b82f6 (59,130,246) and #4f46e5 (79,70,229) to match fill bar
+      pill.style.background = 'rgb(' + Math.round(59+20*pct) + ',' + Math.round(130-60*pct) + ',' + Math.round(246-17*pct) + ')';
       if (!CSS.supports('animation-timeline', 'scroll()')) {
         fill.style.transform = 'scaleY(' + pct + ')';
       }
