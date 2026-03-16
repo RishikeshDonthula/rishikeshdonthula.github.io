@@ -87,6 +87,17 @@
       100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(87,6,140,0); }
     }
     .nyu-pop { animation: nyu-pop 0.65s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+    /* ── Project ticker ── */
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .ticker-track {
+      display: inline-flex;
+      white-space: nowrap;
+      animation: ticker 28s linear infinite;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
   </style>
 </head>
 <body class="bg-white text-zinc-900 antialiased">
@@ -188,6 +199,30 @@
         </p>
         <p class="text-[10px] font-semibold uppercase tracking-widest text-zinc-500 mt-0.5">to Opportunities</p>
       </div>
+    </div>
+  </div>
+
+  <!-- ── PROJECT TICKER ── -->
+  <div class="bg-zinc-950 border-t border-zinc-800 overflow-hidden py-2.5">
+    <div class="ticker-track text-[10px] font-bold tracking-widest uppercase">
+      <!-- Set 1 -->
+      <span class="text-zinc-600 px-5">01</span><span class="text-zinc-400">Customer Churn Prediction</span>
+      <span class="text-zinc-700 px-5">✦</span>
+      <span class="text-zinc-600 px-5">02</span><span class="text-zinc-400">Semantic Segmentation</span>
+      <span class="text-zinc-700 px-5">✦</span>
+      <span class="text-zinc-600 px-5">03</span><span class="text-zinc-400">Fraud Detection</span>
+      <span class="text-zinc-700 px-5">✦</span>
+      <span class="text-zinc-600 px-5">04</span><span class="text-zinc-400">TradeEasy — P2P Barter</span>
+      <span class="text-zinc-700 px-5">✦</span>
+      <!-- Set 2 (seamless loop) -->
+      <span class="text-zinc-600 px-5">01</span><span class="text-zinc-400">Customer Churn Prediction</span>
+      <span class="text-zinc-700 px-5">✦</span>
+      <span class="text-zinc-600 px-5">02</span><span class="text-zinc-400">Semantic Segmentation</span>
+      <span class="text-zinc-700 px-5">✦</span>
+      <span class="text-zinc-600 px-5">03</span><span class="text-zinc-400">Fraud Detection</span>
+      <span class="text-zinc-700 px-5">✦</span>
+      <span class="text-zinc-600 px-5">04</span><span class="text-zinc-400">TradeEasy — P2P Barter</span>
+      <span class="text-zinc-700 px-5">✦</span>
     </div>
   </div>
 
@@ -399,6 +434,9 @@
               Top 10% highest-risk customers accounted for <strong class="text-zinc-700">~77% of churn</strong>.
               Evaluated 28 configurations; <strong class="text-zinc-700">CatBoost + SMOTE</strong> was the top performer.
             </p>
+            <p class="text-[11px] text-blue-600 font-medium mb-3 leading-snug">
+              → Lets telcos concentrate retention spend on the accounts most likely to leave — before they do.
+            </p>
             <div class="flex flex-wrap gap-1.5">
               <span class="text-[11px] bg-zinc-100 text-zinc-600 px-2 py-0.5 rounded font-medium">Python</span>
               <span class="text-[11px] bg-blue-50 text-blue-700 border border-blue-100 px-2 py-0.5 rounded font-medium">CatBoost</span>
@@ -426,6 +464,9 @@
               <strong class="text-zinc-700">~62% mIoU</strong> on an 11-class dataset; <strong class="text-zinc-700">~93% mIoU</strong> on binary road segmentation via
               transfer learning. Compared baselines against <strong class="text-zinc-700">PSPNet</strong> with dilated convolutions.
             </p>
+            <p class="text-[11px] text-blue-600 font-medium mb-3 leading-snug">
+              → Foundational perception layer for autonomous vehicles, robotics, and smart city infrastructure.
+            </p>
             <div class="flex flex-wrap gap-1.5">
               <span class="text-[11px] bg-blue-50 text-blue-700 border border-blue-100 px-2 py-0.5 rounded font-medium">PyTorch</span>
               <span class="text-[11px] bg-zinc-100 text-zinc-600 px-2 py-0.5 rounded font-medium">OpenCV</span>
@@ -452,6 +493,9 @@
               Unsupervised fraud detection on <strong class="text-zinc-700">280,000+ financial transactions</strong> with no labeled data.
               Well-separated behavioral clusters with up to <strong class="text-zinc-700">3× improvement</strong> over random baselines.
               K-Means and GMM evaluated via <strong class="text-zinc-700">Silhouette Score</strong> and Adjusted Rand Index.
+            </p>
+            <p class="text-[11px] text-blue-600 font-medium mb-3 leading-snug">
+              → Works without labeled fraud data — deployable in any financial system from day one.
             </p>
             <div class="flex flex-wrap gap-1.5">
               <span class="text-[11px] bg-zinc-100 text-zinc-600 px-2 py-0.5 rounded font-medium">Python</span>
@@ -483,6 +527,9 @@
               Mobile marketplace for item trading using a <strong class="text-zinc-700">Tinder-style swipe interface</strong>.
               <strong class="text-zinc-700">Flask + PostgreSQL</strong> backend on <strong class="text-zinc-700">AWS RDS</strong> with S3 image storage. Location-aware
               matching via geodesic filtering, JWT auth, and real-time chat.
+            </p>
+            <p class="text-[11px] text-blue-600 font-medium mb-3 leading-snug">
+              → Extensible to any peer-to-peer exchange market — goods, services, or skills.
             </p>
             <div class="flex flex-wrap gap-1.5">
               <span class="text-[11px] bg-blue-50 text-blue-700 border border-blue-100 px-2 py-0.5 rounded font-medium">React Native</span>
@@ -545,10 +592,10 @@
   <section id="contact" class="py-14 bg-zinc-950">
     <div class="max-w-5xl mx-auto px-6 text-center">
       <p class="text-xs font-semibold tracking-widest uppercase text-zinc-500 mb-3">Get In Touch</p>
-      <h2 class="text-3xl font-bold tracking-tight text-white mb-4">Contact</h2>
+      <h2 class="text-3xl font-bold tracking-tight text-white mb-4">Let's Chat</h2>
       <p class="text-zinc-400 max-w-sm mx-auto mb-6 text-base leading-relaxed">
-        I'm always open to collaborations, interesting projects, and conversations about data.
-        Feel free to reach out.
+        Every interesting project starts with a conversation.
+        What are you working on?
       </p>
       <div class="flex flex-wrap justify-center gap-2 mb-8">
         <span class="text-xs font-semibold px-3 py-1.5 rounded-full border border-blue-700 text-blue-300" style="background: rgba(37,99,235,0.15)">
