@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0; url=assets/Resume%20Rishikesh%20Donthula.pdf" />
-    <title>Redirecting to Resume</title>
-  </head>
-  <body>
-    <p>If you are not redirected automatically, <a href="assets/Resume%20Rishikesh%20Donthula.pdf">click here to view the resume</a>.</p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Résumé — Rishikesh Donthula</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; background: #18181b; }
+    iframe { display: block; width: 100%; height: 100vh; border: none; }
+    /* Fallback for browsers that don't embed PDFs */
+    .fallback {
+      display: none;
+      color: #a1a1aa;
+      font-family: sans-serif;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .fallback a { color: #60a5fa; }
+  </style>
+</head>
+<body>
+  <iframe src="/assets/Resume%20Rishikesh%20Donthula.pdf"
+          type="application/pdf"
+          title="Résumé — Rishikesh Donthula">
+    <div class="fallback">
+      <p>Your browser can't display PDFs inline.</p>
+      <p style="margin-top:1rem"><a href="/assets/Resume%20Rishikesh%20Donthula.pdf">Download the résumé instead →</a></p>
+    </div>
+  </iframe>
+</body>
 </html>
