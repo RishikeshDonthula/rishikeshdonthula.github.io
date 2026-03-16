@@ -18,15 +18,15 @@
     /* ── Scroll indicator ── */
     #scroll-track {
       position: fixed; left: 0; top: 0;
-      width: 4px; height: 100vh;
-      background: rgba(148,163,184,0.18);
+      width: 6px; height: 100vh;
+      background: rgba(148,163,184,0.15);
       z-index: 9998;
     }
     #scroll-fill {
       position: fixed; left: 0; top: 0;
-      width: 4px; height: 100vh;
-      background: linear-gradient(to bottom, #3b82f6 0%, #7c3aed 100%);
-      box-shadow: 1px 0 10px rgba(99,102,241,0.45);
+      width: 6px; height: 100vh;
+      background: linear-gradient(to bottom, #3b82f6 0%, #4f46e5 100%);
+      box-shadow: 2px 0 12px rgba(79,70,229,0.4);
       transform-origin: top center;
       transform: scaleY(0);
       z-index: 9999;
@@ -38,7 +38,7 @@
       to   { transform: scaleY(1); }
     }
     #scroll-pill {
-      position: fixed; left: 7px; top: 0;
+      position: fixed; left: 10px; top: 0;
       background: #6366f1;
       color: #fff;
       font-size: 10px; font-weight: 700; font-family: 'Inter', sans-serif;
@@ -209,13 +209,19 @@
         <div class="md:col-span-2 space-y-3 fade-in" style="transition-delay:0.12s">
           <div class="border border-zinc-200 rounded-xl p-5">
             <p class="text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Graduate</p>
-            <p class="font-semibold text-zinc-900 text-sm">Georgia Institute of Technology</p>
+            <div class="flex items-center gap-2 mb-0.5">
+              <span class="inline-flex items-center justify-center w-6 h-6 rounded text-[9px] font-black shrink-0" style="background:#003057;color:#B3A369">GT</span>
+              <p class="font-semibold text-zinc-900 text-sm">Georgia Institute of Technology</p>
+            </div>
             <p class="text-sm text-zinc-500 mt-0.5">MS Analytics &middot; GPA: 4.0</p>
             <p class="text-sm text-zinc-500">Aug 2025 – Dec 2026</p>
           </div>
           <div class="border border-zinc-200 rounded-xl p-5">
             <p class="text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Undergraduate</p>
-            <p class="font-semibold text-zinc-900 text-sm">New York University</p>
+            <div class="flex items-center gap-2 mb-0.5">
+              <span class="inline-flex items-center justify-center w-6 h-6 rounded text-[9px] font-black shrink-0" style="background:#57068c;color:white">NYU</span>
+              <p class="font-semibold text-zinc-900 text-sm">New York University</p>
+            </div>
             <p class="text-sm text-zinc-500 mt-0.5">BS Computer Science</p>
             <p class="text-sm text-zinc-500">Minors in Mathematics &amp; Finance</p>
           </div>
@@ -245,7 +251,10 @@
             <span class="text-xs text-zinc-400 whitespace-nowrap mt-1">August 2025 – December 2026</span>
           </div>
           <div class="flex items-center justify-between flex-wrap gap-2 mb-3">
-            <p class="text-sm font-medium text-blue-600">Georgia Institute of Technology</p>
+            <div class="flex items-center gap-2">
+              <span class="inline-flex items-center justify-center w-6 h-6 rounded text-[9px] font-black shrink-0" style="background:#003057;color:#B3A369">GT</span>
+              <p class="text-sm font-medium text-blue-600">Georgia Institute of Technology</p>
+            </div>
             <span class="text-sm text-zinc-400">Atlanta, GA</span>
           </div>
           <span class="inline-block text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-md px-2.5 py-1 mb-3">GPA: 4.0</span>
@@ -262,7 +271,10 @@
             <span class="text-xs text-zinc-400 whitespace-nowrap mt-1">September 2019 – May 2024</span>
           </div>
           <div class="flex items-center justify-between flex-wrap gap-2 mb-3">
-            <p class="text-sm font-medium text-blue-600">New York University</p>
+            <div class="flex items-center gap-2">
+              <span class="inline-flex items-center justify-center w-6 h-6 rounded text-[9px] font-black shrink-0" style="background:#57068c;color:white">NYU</span>
+              <p class="text-sm font-medium text-blue-600">New York University</p>
+            </div>
             <span class="text-sm text-zinc-400">New York City, NY</span>
           </div>
           <span class="inline-block text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-md px-2.5 py-1 mb-3">Dean's List (2019–2020)</span>
@@ -351,7 +363,10 @@
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">PageRank</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">Time Series</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">Clustering</span>
-            <span class="bg-blue-50 text-blue-700 border border-blue-100 text-xs font-medium px-2.5 py-1 rounded-md">Applied Data Science, University of Michigan</span>
+            <span class="inline-flex items-center gap-1.5 bg-blue-50 text-blue-700 border border-blue-100 text-xs font-medium px-2.5 py-1 rounded-md">
+              <span class="inline-flex items-center justify-center w-4 h-4 rounded-sm text-[8px] font-black shrink-0" style="background:#00274C;color:#FFCB05">M</span>
+              Applied Data Science, University of Michigan
+            </span>
           </div>
         </div>
 
