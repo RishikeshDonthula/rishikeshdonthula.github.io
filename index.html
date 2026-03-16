@@ -15,13 +15,29 @@
       background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
       background-size: 22px 22px;
     }
+    #scroll-indicator {
+      position: fixed;
+      left: 0; top: 0;
+      width: 3px; height: 100vh;
+      background: #3b82f6;
+      transform-origin: top center;
+      transform: scaleY(0);
+      z-index: 9999;
+      animation: scroll-grow linear both;
+      animation-timeline: scroll(root block);
+    }
+    @keyframes scroll-grow {
+      from { transform: scaleY(0); }
+      to   { transform: scaleY(1); }
+    }
   </style>
 </head>
 <body class="bg-white text-zinc-900 antialiased">
 
+  <div id="scroll-indicator"></div>
+
   <!-- ── NAV ── -->
-  <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-zinc-200 z-50 relative">
-    <div id="scrollBar" style="position:absolute;top:0;left:0;height:3px;width:0%;background:#3b82f6;transition:width 0.1s linear;z-index:10;"></div>
+  <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-zinc-200 z-50">
     <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
       <span class="font-semibold text-sm text-zinc-900 tracking-tight">Rishikesh Donthula</span>
       <button id="navToggle" class="md:hidden flex flex-col gap-1.5 p-1" aria-label="Toggle menu">
@@ -416,12 +432,14 @@
   </footer>
 
   <script>
-    const bar = document.getElementById('scrollBar');
-    window.addEventListener('scroll', () => {
-      const doc = document.documentElement;
-      const pct = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
-      bar.style.width = pct + '%';
-    });
+    if (!CSS.supports('animation-timeline', 'scroll()')) {
+      const ind = document.getElementById('scroll-indicator');
+      window.addEventListener('scroll', () => {
+        const doc = document.documentElement;
+        const pct = doc.scrollTop / (doc.scrollHeight - doc.clientHeight);
+        ind.style.transform = 'scaleY(' + pct + ')';
+      }, { passive: true });
+    }
 
     const toggle = document.getElementById('navToggle');
     const menu   = document.getElementById('mobileMenu');
