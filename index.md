@@ -5,7 +5,6 @@ title: Main
 
 
 ## This is my website.
-It is a work in progress and I will make changes to it soon. 
+I am still figuring out who rdonthula is.
 
-
-Test
+Meanwhile, check out my [portfolio](https://rdonthula.com/me) site.
