@@ -198,32 +198,30 @@
         <p class="text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-2">About Me</p>
         <h2 class="text-3xl font-bold tracking-tight text-zinc-900">Who I Am</h2>
       </div>
-      <div class="grid md:grid-cols-5 gap-10 items-start">
+      <!-- Bio text — full width -->
+      <div class="space-y-3 text-zinc-600 leading-relaxed text-[15px] fade-in">
+        <p>
+          I build ML systems end-to-end, from raw data to working model. My first year
+          at Georgia Tech's MS Analytics program produced three deployed projects spanning
+          churn prediction, computer vision, and unsupervised fraud detection. I'm carrying
+          a 4.0.
+        </p>
+        <p>
+          My background combines computer science, mathematics, and finance. I can write
+          the query, build the model, and understand what the output actually means for a business.
+        </p>
+        <blockquote class="border-l-2 border-blue-500 pl-4 py-0.5 text-zinc-800 font-semibold text-[15px]">
+          That combination doesn't come standard.
+        </blockquote>
+        <p>
+          Outside of work, I follow financial markets closely and spend time on ML research.
+          I tend to gravitate toward problems where the math is interesting and the stakes
+          are real.
+        </p>
+      </div>
 
-        <!-- Bio text -->
-        <div class="md:col-span-3 space-y-3 text-zinc-600 leading-relaxed text-[15px] fade-in">
-          <p>
-            I build ML systems end-to-end, from raw data to working model. My first year
-            at Georgia Tech's MS Analytics program produced three deployed projects spanning
-            churn prediction, computer vision, and unsupervised fraud detection. I'm carrying
-            a 4.0.
-          </p>
-          <p>
-            My background combines computer science, mathematics, and finance. I can write
-            the query, build the model, and understand what the output actually means for a business.
-          </p>
-          <blockquote class="border-l-2 border-blue-500 pl-4 py-0.5 text-zinc-800 font-semibold text-[15px]">
-            That combination doesn't come standard.
-          </blockquote>
-          <p>
-            Outside of work, I follow financial markets closely and spend time on ML research.
-            I tend to gravitate toward problems where the math is interesting and the stakes
-            are real.
-          </p>
-        </div>
-
-        <!-- Education pills -->
-        <div class="md:col-span-2 space-y-3 fade-in" style="transition-delay:0.12s">
+      <!-- Education pills — side by side below bio -->
+      <div class="grid sm:grid-cols-2 gap-4 mt-8 fade-in" style="transition-delay:0.12s">
 
           <!-- Georgia Tech -->
           <div class="border border-zinc-200 rounded-xl p-4">
@@ -277,7 +275,6 @@
             </div>
           </div>
 
-        </div>
       </div>
     </div>
   </section>
