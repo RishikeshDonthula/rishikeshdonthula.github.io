@@ -15,11 +15,17 @@
       background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
       background-size: 22px 22px;
     }
-    #scroll-indicator {
-      position: fixed;
-      left: 0; top: 0;
-      width: 3px; height: 100vh;
-      background: #3b82f6;
+    #scroll-track {
+      position: fixed; left: 0; top: 0;
+      width: 4px; height: 100vh;
+      background: rgba(148,163,184,0.18);
+      z-index: 9998;
+    }
+    #scroll-fill {
+      position: fixed; left: 0; top: 0;
+      width: 4px; height: 100vh;
+      background: linear-gradient(to bottom, #3b82f6 0%, #7c3aed 100%);
+      box-shadow: 1px 0 10px rgba(99,102,241,0.45);
       transform-origin: top center;
       transform: scaleY(0);
       z-index: 9999;
@@ -30,11 +36,27 @@
       from { transform: scaleY(0); }
       to   { transform: scaleY(1); }
     }
+    #scroll-pill {
+      position: fixed; left: 7px; top: 0;
+      background: #6366f1;
+      color: #fff;
+      font-size: 10px; font-weight: 700; font-family: 'Inter', sans-serif;
+      padding: 3px 7px 3px 6px;
+      border-radius: 0 6px 6px 0;
+      z-index: 10000;
+      opacity: 0;
+      pointer-events: none;
+      white-space: nowrap;
+      transition: background 0.3s;
+      box-shadow: 0 1px 6px rgba(99,102,241,0.35);
+    }
   </style>
 </head>
 <body class="bg-white text-zinc-900 antialiased">
 
-  <div id="scroll-indicator"></div>
+  <div id="scroll-track"></div>
+  <div id="scroll-fill"></div>
+  <div id="scroll-pill">0%</div>
 
   <!-- ── NAV ── -->
   <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-zinc-200 z-50">
@@ -432,14 +454,25 @@
   </footer>
 
   <script>
-    if (!CSS.supports('animation-timeline', 'scroll()')) {
-      const ind = document.getElementById('scroll-indicator');
-      window.addEventListener('scroll', () => {
-        const doc = document.documentElement;
-        const pct = doc.scrollTop / (doc.scrollHeight - doc.clientHeight);
-        ind.style.transform = 'scaleY(' + pct + ')';
-      }, { passive: true });
-    }
+    const fill = document.getElementById('scroll-fill');
+    const pill = document.getElementById('scroll-pill');
+
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const pct = doc.scrollTop / (doc.scrollHeight - doc.clientHeight);
+      const pctInt = Math.round(pct * 100);
+
+      pill.style.top = (pct * (window.innerHeight - 26)) + 'px';
+      pill.textContent = pctInt + '%';
+      pill.style.opacity = pct > 0.01 ? '1' : '0';
+
+      const hue = Math.round(230 + pct * 40);
+      pill.style.background = 'hsl(' + hue + ',89%,60%)';
+
+      if (!CSS.supports('animation-timeline', 'scroll()')) {
+        fill.style.transform = 'scaleY(' + pct + ')';
+      }
+    }, { passive: true });
 
     const toggle = document.getElementById('navToggle');
     const menu   = document.getElementById('mobileMenu');
