@@ -127,7 +127,7 @@
   </nav>
 
   <!-- ── HERO ── -->
-  <section id="home" class="bg-zinc-950 pt-28 pb-20 relative overflow-hidden">
+  <section id="home" class="bg-zinc-950 pt-28 pb-12 relative overflow-hidden">
     <div class="dot-pattern absolute inset-0 pointer-events-none"></div>
     <div class="max-w-5xl mx-auto px-6 relative">
       <div class="flex flex-col md:flex-row items-start md:items-center gap-10">
@@ -151,8 +151,8 @@
             </svg>
           </a>
           <div class="flex items-center gap-2 mt-5">
-            <span class="inline-block text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-emerald-700 text-emerald-400 tracking-wide" style="background:rgba(6,78,59,0.22)">open</span>
-            <span class="text-xs text-zinc-400">to full-time &amp; internship opportunities</span>
+            <span class="inline-block text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-emerald-700 text-emerald-400 tracking-wide" style="background:rgba(6,78,59,0.22)">Open</span>
+            <span class="text-xs text-zinc-400">to Full-time &amp; Internship Opportunities</span>
           </div>
         </div>
       </div>
@@ -165,17 +165,17 @@
       <div class="fade-in flex flex-col items-center justify-center">
         <p class="text-4xl leading-none">🇺🇸🇮🇳</p>
       </div>
-      <a href="#projects" class="fade-in hover:opacity-70 transition-opacity" style="transition-delay:0.07s">
-        <p class="text-2xl font-extrabold text-white stat-num" data-val="4">4</p>
-        <p class="text-[10px] font-semibold uppercase tracking-widest text-zinc-500 mt-0.5">Projects</p>
+      <a href="#projects" class="fade-in group cursor-pointer" style="transition-delay:0.07s">
+        <p class="text-2xl font-extrabold text-white group-hover:text-blue-400 transition-colors stat-num" data-val="4">4</p>
+        <p class="text-[10px] font-semibold uppercase tracking-widest text-zinc-500 mt-0.5 group-hover:text-zinc-400 transition-colors">Projects ↗</p>
       </a>
-      <a href="#project-fraud" class="fade-in hover:opacity-70 transition-opacity" style="transition-delay:0.14s">
-        <p class="text-2xl font-extrabold text-white">280K+</p>
-        <p class="text-[10px] font-semibold uppercase tracking-widest text-zinc-500 mt-0.5">Transactions Analyzed</p>
+      <a href="#project-fraud" class="fade-in group cursor-pointer" style="transition-delay:0.14s">
+        <p class="text-2xl font-extrabold text-white group-hover:text-blue-400 transition-colors">280K+</p>
+        <p class="text-[10px] font-semibold uppercase tracking-widest text-zinc-500 mt-0.5 group-hover:text-zinc-400 transition-colors">Transactions ↗</p>
       </a>
-      <a href="#project-churn" class="fade-in hover:opacity-70 transition-opacity" style="transition-delay:0.21s">
-        <p class="text-2xl font-extrabold text-white">~85%</p>
-        <p class="text-[10px] font-semibold uppercase tracking-widest text-zinc-500 mt-0.5">ROC-AUC</p>
+      <a href="#project-churn" class="fade-in group cursor-pointer" style="transition-delay:0.21s">
+        <p class="text-2xl font-extrabold text-white group-hover:text-blue-400 transition-colors">~85%</p>
+        <p class="text-[10px] font-semibold uppercase tracking-widest text-zinc-500 mt-0.5 group-hover:text-zinc-400 transition-colors">ROC-AUC ↗</p>
       </a>
       <div class="fade-in col-span-2 sm:col-span-1" style="transition-delay:0.28s">
         <p class="text-2xl font-extrabold text-emerald-400 flex items-center justify-center gap-1.5">
@@ -367,7 +367,7 @@
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">JWT Auth</span>
             <span class="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-md" style="background:#fef9e7;color:#00274C;border:1px solid #FFCB05;width:fit-content">
               <img src="/assets/logo-michigan.png" alt="Michigan" class="h-5 w-auto shrink-0" />
-              <span class="flex flex-col leading-tight">
+              <span class="flex flex-col leading-tight whitespace-nowrap">
                 <span>Applied Data Science</span>
                 <span class="font-semibold">University of Michigan</span>
               </span>
@@ -750,29 +750,46 @@
     const tickerSlot = document.getElementById('ticker-slot');
     if (tickerSlot) {
       const projects = [
-        { num: '01', name: 'Customer Churn Prediction' },
-        { num: '02', name: 'Semantic Segmentation' },
-        { num: '03', name: 'Fraud Detection' },
-        { num: '04', name: 'TradeEasy — P2P Barter' },
+        { num: '01', name: 'Customer Churn Prediction', href: 'project-churn', center: true },
+        { num: '02', name: 'Semantic Segmentation',     href: 'projects',       center: false },
+        { num: '03', name: 'Fraud Detection',           href: 'project-fraud',  center: true },
+        { num: '04', name: 'TradeEasy — P2P Barter',   href: 'projects',       center: false },
       ];
       let idx = 0;
-      const SLIDE = 520;   // ms for each slide transition
-      const HOLD  = 2600;  // ms held at centre
+      const SLIDE = 520;
+      const HOLD  = 2600;
+
+      // Style the slot itself as a clickable link
+      tickerSlot.style.cursor = 'pointer';
+      tickerSlot.addEventListener('mouseenter', () => {
+        tickerSlot.querySelector('.ticker-name').style.color = '#60a5fa'; // blue-400
+        tickerSlot.querySelector('.ticker-arrow').style.opacity = '1';
+      });
+      tickerSlot.addEventListener('mouseleave', () => {
+        tickerSlot.querySelector('.ticker-name').style.color = '#a1a1aa';
+        tickerSlot.querySelector('.ticker-arrow').style.opacity = '0';
+      });
+      tickerSlot.addEventListener('click', () => {
+        const p = projects[idx];
+        const target = document.getElementById(p.href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: p.center ? 'center' : 'start' });
+        }
+      });
 
       function runTicker() {
         const p = projects[idx];
         tickerSlot.innerHTML =
           '<span style="color:#52525b;margin-right:12px">' + p.num + '</span>' +
-          '<span style="color:#a1a1aa">' + p.name + '</span>';
+          '<span class="ticker-name" style="color:#a1a1aa;transition:color 0.2s">' + p.name + '</span>' +
+          '<span class="ticker-arrow" style="color:#60a5fa;margin-left:6px;opacity:0;transition:opacity 0.2s">↗</span>';
 
-        // Snap to right off-screen (no transition)
         tickerSlot.style.transition = 'none';
         tickerSlot.style.transform  = 'translateX(110%)';
 
-        // Double rAF ensures the snap is painted before we re-enable transition
         requestAnimationFrame(() => requestAnimationFrame(() => {
           tickerSlot.style.transition = 'transform ' + SLIDE + 'ms cubic-bezier(0.25,0.46,0.45,0.94)';
-          tickerSlot.style.transform  = 'translateX(0)';          // Hold at centre, then exit left
+          tickerSlot.style.transform  = 'translateX(0)';
           setTimeout(() => {
             tickerSlot.style.transform = 'translateX(-110%)';
             setTimeout(() => {
