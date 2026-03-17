@@ -151,8 +151,8 @@
             </svg>
           </a>
           <div class="flex items-center gap-2 mt-5">
-            <span class="inline-block text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-emerald-700 text-emerald-400 tracking-wide" style="background:rgba(6,78,59,0.22)">Open</span>
-            <span class="text-xs text-zinc-400">to Full-time &amp; Internship Opportunities</span>
+            <span class="inline-block text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-emerald-700 text-emerald-400 tracking-wide uppercase" style="background:rgba(6,78,59,0.22)">Open</span>
+            <span class="text-[10px] font-semibold tracking-widest uppercase text-zinc-400">to Full-Time &amp; Internship Opportunities</span>
           </div>
         </div>
       </div>
@@ -367,9 +367,9 @@
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">JWT Auth</span>
             <span class="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-md" style="background:#fef9e7;color:#00274C;border:1px solid #FFCB05;width:fit-content">
               <img src="/assets/logo-michigan.png" alt="Michigan" class="h-5 w-auto shrink-0" />
-              <span class="flex flex-col leading-tight whitespace-nowrap">
-                <span>Applied Data Science</span>
-                <span class="font-semibold">University of Michigan</span>
+              <span class="flex flex-col leading-tight">
+                <span class="whitespace-nowrap">Applied Data Science</span>
+                <span class="whitespace-nowrap font-semibold">University of Michigan</span>
               </span>
             </span>
           </div>
@@ -750,10 +750,10 @@
     const tickerSlot = document.getElementById('ticker-slot');
     if (tickerSlot) {
       const projects = [
-        { num: '01', name: 'Customer Churn Prediction', href: 'project-churn', center: true },
-        { num: '02', name: 'Semantic Segmentation',     href: 'projects',       center: false },
-        { num: '03', name: 'Fraud Detection',           href: 'project-fraud',  center: true },
-        { num: '04', name: 'TradeEasy — P2P Barter',   href: 'projects',       center: false },
+        { num: '01', name: 'Customer Churn Prediction', href: 'project-churn' },
+        { num: '02', name: 'Semantic Segmentation',     href: 'projects'       },
+        { num: '03', name: 'Fraud Detection',           href: 'project-fraud'  },
+        { num: '04', name: 'TradeEasy — P2P Barter',   href: 'projects'       },
       ];
       let idx = 0;
       const SLIDE = 520;
@@ -762,19 +762,16 @@
       // Style the slot itself as a clickable link
       tickerSlot.style.cursor = 'pointer';
       tickerSlot.addEventListener('mouseenter', () => {
-        tickerSlot.querySelector('.ticker-name').style.color = '#60a5fa'; // blue-400
-        tickerSlot.querySelector('.ticker-arrow').style.opacity = '1';
+        const n = tickerSlot.querySelector('.ticker-name');
+        if (n) n.style.color = '#60a5fa';
       });
       tickerSlot.addEventListener('mouseleave', () => {
-        tickerSlot.querySelector('.ticker-name').style.color = '#a1a1aa';
-        tickerSlot.querySelector('.ticker-arrow').style.opacity = '0';
+        const n = tickerSlot.querySelector('.ticker-name');
+        if (n) n.style.color = '#a1a1aa';
       });
       tickerSlot.addEventListener('click', () => {
-        const p = projects[idx];
-        const target = document.getElementById(p.href);
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: p.center ? 'center' : 'start' });
-        }
+        const target = document.getElementById(projects[idx].href);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'center' });
       });
 
       function runTicker() {
@@ -782,7 +779,7 @@
         tickerSlot.innerHTML =
           '<span style="color:#52525b;margin-right:12px">' + p.num + '</span>' +
           '<span class="ticker-name" style="color:#a1a1aa;transition:color 0.2s">' + p.name + '</span>' +
-          '<span class="ticker-arrow" style="color:#60a5fa;margin-left:6px;opacity:0;transition:opacity 0.2s">↗</span>';
+          '<span style="color:#60a5fa;margin-left:6px">↗</span>';
 
         tickerSlot.style.transition = 'none';
         tickerSlot.style.transform  = 'translateX(110%)';
