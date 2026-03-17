@@ -72,12 +72,31 @@
     /* ── Hide scroll % pill on mobile ── */
     @media (max-width: 639px) { #scroll-pill { display: none; } }
     /* ── Project ticker ── */
-    .ticker-track {
-      display: flex;
-      width: max-content;
-      will-change: transform;
+    #ticker-display {
+      position: relative;
+      height: 1.6em;
+      overflow: hidden;
     }
-    .ticker-paused { animation-play-state: paused; }
+    .ticker-item {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      pointer-events: none;
+    }
+    .ticker-item.ticker-active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .ticker-item.ticker-out {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
   </style>
 </head>
 <body class="bg-white text-zinc-900 antialiased">
@@ -183,26 +202,20 @@
   </div>
 
   <!-- ── PROJECT TICKER ── -->
-  <div class="bg-zinc-950 border-t border-zinc-800 overflow-hidden py-2.5">
-    <div class="ticker-track text-[10px] font-bold tracking-widest uppercase">
-      <!-- Set 1 -->
-      <span class="text-zinc-600 px-5">01</span><span class="text-zinc-400">Customer Churn Prediction</span>
-      <span class="text-zinc-700 px-5">✦</span>
-      <span class="text-zinc-600 px-5">02</span><span class="text-zinc-400">Semantic Segmentation</span>
-      <span class="text-zinc-700 px-5">✦</span>
-      <span class="text-zinc-600 px-5">03</span><span class="text-zinc-400">Fraud Detection</span>
-      <span class="text-zinc-700 px-5">✦</span>
-      <span class="text-zinc-600 px-5">04</span><span class="text-zinc-400">TradeEasy — P2P Barter</span>
-      <span class="text-zinc-700 px-5">✦</span>
-      <!-- Set 2 (seamless loop) -->
-      <span class="text-zinc-600 px-5">01</span><span class="text-zinc-400">Customer Churn Prediction</span>
-      <span class="text-zinc-700 px-5">✦</span>
-      <span class="text-zinc-600 px-5">02</span><span class="text-zinc-400">Semantic Segmentation</span>
-      <span class="text-zinc-700 px-5">✦</span>
-      <span class="text-zinc-600 px-5">03</span><span class="text-zinc-400">Fraud Detection</span>
-      <span class="text-zinc-700 px-5">✦</span>
-      <span class="text-zinc-600 px-5">04</span><span class="text-zinc-400">TradeEasy — P2P Barter</span>
-      <span class="text-zinc-700 px-5">✦</span>
+  <div class="bg-zinc-950 border-t border-zinc-800 py-2.5">
+    <div id="ticker-display" class="text-[10px] font-bold tracking-widest uppercase">
+      <div class="ticker-item" data-href="#project-churn">
+        <span class="text-zinc-600 mr-3">01</span><span class="text-zinc-400">Customer Churn Prediction</span>
+      </div>
+      <div class="ticker-item" data-href="#projects">
+        <span class="text-zinc-600 mr-3">02</span><span class="text-zinc-400">Semantic Segmentation</span>
+      </div>
+      <div class="ticker-item" data-href="#project-fraud">
+        <span class="text-zinc-600 mr-3">03</span><span class="text-zinc-400">Fraud Detection</span>
+      </div>
+      <div class="ticker-item" data-href="#projects">
+        <span class="text-zinc-600 mr-3">04</span><span class="text-zinc-400">TradeEasy — P2P Barter</span>
+      </div>
     </div>
   </div>
 
@@ -755,26 +768,19 @@
       statObserver.observe(statsEl);
     }
 
-    // ── Project ticker (JS-driven for pixel-perfect seamless loop) ──
-    const tickerTrack = document.querySelector('.ticker-track');
-    if (tickerTrack) {
-      // Wait one frame so layout is complete before reading scrollWidth
-      requestAnimationFrame(() => {
-        const half = tickerTrack.scrollWidth / 2;
-        let x = 0;
-        let paused = false;
-        tickerTrack.parentElement.addEventListener('mouseenter', () => paused = true);
-        tickerTrack.parentElement.addEventListener('mouseleave', () => paused = false);
-        const speed = 0.4; // px per frame (~24px/s at 60fps)
-        (function tick() {
-          if (!paused) {
-            x -= speed;
-            if (x <= -half) x += half; // exact pixel reset = invisible seam
-            tickerTrack.style.transform = 'translateX(' + x + 'px)';
-          }
-          requestAnimationFrame(tick);
-        })();
-      });
+    // ── Project ticker (one at a time, fade + slide) ──
+    const tickerItems = document.querySelectorAll('.ticker-item');
+    if (tickerItems.length) {
+      let current = 0;
+      tickerItems[0].classList.add('ticker-active');
+      setInterval(() => {
+        const prev = current;
+        current = (current + 1) % tickerItems.length;
+        tickerItems[prev].classList.remove('ticker-active');
+        tickerItems[prev].classList.add('ticker-out');
+        setTimeout(() => tickerItems[prev].classList.remove('ticker-out'), 400);
+        tickerItems[current].classList.add('ticker-active');
+      }, 2800);
     }
   </script>
 
