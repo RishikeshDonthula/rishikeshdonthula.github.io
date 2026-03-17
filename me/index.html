@@ -72,18 +72,12 @@
     /* ── Hide scroll % pill on mobile ── */
     @media (max-width: 639px) { #scroll-pill { display: none; } }
     /* ── Project ticker ── */
-    @keyframes ticker {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
     .ticker-track {
       display: flex;
       width: max-content;
       will-change: transform;
-      backface-visibility: hidden;
-      animation: ticker 30s linear infinite;
     }
-    .ticker-track:hover { animation-play-state: paused; }
+    .ticker-paused { animation-play-state: paused; }
   </style>
 </head>
 <body class="bg-white text-zinc-900 antialiased">
@@ -139,7 +133,7 @@
             Rishikesh<br>Donthula
           </h1>
           <p class="text-zinc-400 text-base mb-8">
-            MS Analytics @ <span class="font-semibold" style="color:#a18b5a">Georgia Tech</span> &middot; ML &middot; Statistical Modeling &middot; Data Engineering
+            MS Analytics @ <span class="font-bold px-1.5 py-px rounded" style="background:#a18b5a;color:#ffffff">Georgia Tech</span> &middot; ML &middot; Statistical Modeling &middot; Data Engineering
           </p>
           <a href="#projects"
              class="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-500 transition-colors">
@@ -759,6 +753,28 @@
         });
       }, { threshold: 0.3 });
       statObserver.observe(statsEl);
+    }
+
+    // ── Project ticker (JS-driven for pixel-perfect seamless loop) ──
+    const tickerTrack = document.querySelector('.ticker-track');
+    if (tickerTrack) {
+      // Wait one frame so layout is complete before reading scrollWidth
+      requestAnimationFrame(() => {
+        const half = tickerTrack.scrollWidth / 2;
+        let x = 0;
+        let paused = false;
+        tickerTrack.parentElement.addEventListener('mouseenter', () => paused = true);
+        tickerTrack.parentElement.addEventListener('mouseleave', () => paused = false);
+        const speed = 0.4; // px per frame (~24px/s at 60fps)
+        (function tick() {
+          if (!paused) {
+            x -= speed;
+            if (x <= -half) x += half; // exact pixel reset = invisible seam
+            tickerTrack.style.transform = 'translateX(' + x + 'px)';
+          }
+          requestAnimationFrame(tick);
+        })();
+      });
     }
   </script>
 
