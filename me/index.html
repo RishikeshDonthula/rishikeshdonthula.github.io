@@ -74,28 +74,17 @@
     /* ── Project ticker ── */
     #ticker-display {
       position: relative;
-      height: 1.6em;
+      height: 2em;
       overflow: hidden;
     }
-    .ticker-item {
+    #ticker-slot {
       position: absolute;
       inset: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
-      pointer-events: none;
-    }
-    .ticker-item.ticker-active {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-    .ticker-item.ticker-out {
-      opacity: 0;
-      transform: translateY(-8px);
+      transform: translateX(110%);
+      will-change: transform;
     }
   </style>
 </head>
@@ -202,20 +191,9 @@
   </div>
 
   <!-- ── PROJECT TICKER ── -->
-  <div class="bg-zinc-950 border-t border-zinc-800 py-2.5">
+  <div class="bg-zinc-950 border-t border-zinc-800 py-2.5 overflow-hidden">
     <div id="ticker-display" class="text-[10px] font-bold tracking-widest uppercase">
-      <div class="ticker-item" data-href="#project-churn">
-        <span class="text-zinc-600 mr-3">01</span><span class="text-zinc-400">Customer Churn Prediction</span>
-      </div>
-      <div class="ticker-item" data-href="#projects">
-        <span class="text-zinc-600 mr-3">02</span><span class="text-zinc-400">Semantic Segmentation</span>
-      </div>
-      <div class="ticker-item" data-href="#project-fraud">
-        <span class="text-zinc-600 mr-3">03</span><span class="text-zinc-400">Fraud Detection</span>
-      </div>
-      <div class="ticker-item" data-href="#projects">
-        <span class="text-zinc-600 mr-3">04</span><span class="text-zinc-400">TradeEasy — P2P Barter</span>
-      </div>
+      <div id="ticker-slot"></div>
     </div>
   </div>
 
@@ -768,20 +746,55 @@
       statObserver.observe(statsEl);
     }
 
-    // ── Project ticker (one at a time, fade + slide) ──
-    const tickerItems = document.querySelectorAll('.ticker-item');
-    if (tickerItems.length) {
-      let current = 0;
-      tickerItems[0].classList.add('ticker-active');
-      setInterval(() => {
-        const prev = current;
-        current = (current + 1) % tickerItems.length;
-        tickerItems[prev].classList.remove('ticker-active');
-        tickerItems[prev].classList.add('ticker-out');
-        setTimeout(() => tickerItems[prev].classList.remove('ticker-out'), 400);
-        tickerItems[current].classList.add('ticker-active');
-      }, 2800);
+    // ── Project ticker (news-channel: slides in from right, holds at centre, exits left) ──
+    const tickerSlot = document.getElementById('ticker-slot');
+    if (tickerSlot) {
+      const projects = [
+        { num: '01', name: 'Customer Churn Prediction' },
+        { num: '02', name: 'Semantic Segmentation' },
+        { num: '03', name: 'Fraud Detection' },
+        { num: '04', name: 'TradeEasy — P2P Barter' },
+      ];
+      let idx = 0;
+      const SLIDE = 520;   // ms for each slide transition
+      const HOLD  = 2600;  // ms held at centre
+
+      function runTicker() {
+        const p = projects[idx];
+        tickerSlot.innerHTML =
+          '<span style="color:#52525b;margin-right:12px">' + p.num + '</span>' +
+          '<span style="color:#a1a1aa">' + p.name + '</span>';
+
+        // Snap to right off-screen (no transition)
+        tickerSlot.style.transition = 'none';
+        tickerSlot.style.transform  = 'translateX(110%)';
+
+        // Double rAF ensures the snap is painted before we re-enable transition
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          tickerSlot.style.transition = 'transform ' + SLIDE + 'ms cubic-bezier(0.25,0.46,0.45,0.94)';
+          tickerSlot.style.transform  = 'translateX(0)';          // Hold at centre, then exit left
+          setTimeout(() => {
+            tickerSlot.style.transform = 'translateX(-110%)';
+            setTimeout(() => {
+              idx = (idx + 1) % projects.length;
+              runTicker();
+            }, SLIDE);
+          }, HOLD);
+        }));
+      }
+      runTicker();
     }
+
+    // ── Centred scroll for project-specific anchors ──
+    document.querySelectorAll('a[href="#project-churn"], a[href="#project-fraud"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.getElementById(a.getAttribute('href').slice(1));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    });
   </script>
 
 </body>
