@@ -71,31 +71,17 @@
     nav a.nav-active { color: #18181b !important; font-weight: 600; }
     /* ── Hide scroll % pill on mobile ── */
     @media (max-width: 639px) { #scroll-pill { display: none; } }
-    /* ── GPA pop animation ── */
-    @keyframes gpa-pop {
-      0%   { transform: scale(1); box-shadow: 0 0 0 0 rgba(161,139,90,0); }
-      35%  { transform: scale(1.3); box-shadow: 0 0 18px 4px rgba(161,139,90,0.7); }
-      65%  { transform: scale(1.12); }
-      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(161,139,90,0); }
-    }
-    .gpa-pop { animation: gpa-pop 0.65s cubic-bezier(0.34,1.56,0.64,1) forwards; }
-    /* ── NYU badge pop ── */
-    @keyframes nyu-pop {
-      0%   { transform: scale(1); box-shadow: 0 0 0 0 rgba(87,6,140,0); }
-      35%  { transform: scale(1.35); box-shadow: 0 0 14px 4px rgba(87,6,140,0.65); }
-      65%  { transform: scale(1.12); }
-      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(87,6,140,0); }
-    }
-    .nyu-pop { animation: nyu-pop 0.65s cubic-bezier(0.34,1.56,0.64,1) forwards; }
     /* ── Project ticker ── */
     @keyframes ticker {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
     }
     .ticker-track {
-      display: inline-flex;
-      white-space: nowrap;
-      animation: ticker 28s linear infinite;
+      display: flex;
+      width: max-content;
+      will-change: transform;
+      backface-visibility: hidden;
+      animation: ticker 30s linear infinite;
     }
     .ticker-track:hover { animation-play-state: paused; }
   </style>
@@ -153,7 +139,7 @@
             Rishikesh<br>Donthula
           </h1>
           <p class="text-zinc-400 text-base mb-8">
-            MS Analytics @ Georgia Tech &middot; ML &middot; Statistical Modeling &middot; Data Engineering
+            MS Analytics @ <span class="font-semibold" style="color:#a18b5a">Georgia Tech</span> &middot; ML &middot; Statistical Modeling &middot; Data Engineering
           </p>
           <a href="#projects"
              class="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-500 transition-colors">
@@ -177,18 +163,18 @@
       <div class="fade-in flex flex-col items-center justify-center">
         <p class="text-4xl leading-none">🇺🇸🇮🇳</p>
       </div>
-      <div class="fade-in" style="transition-delay:0.07s">
+      <a href="#projects" class="fade-in hover:opacity-70 transition-opacity" style="transition-delay:0.07s">
         <p class="text-2xl font-extrabold text-white stat-num" data-val="4">4</p>
         <p class="text-[10px] font-semibold uppercase tracking-widest text-zinc-500 mt-0.5">Projects</p>
-      </div>
-      <div class="fade-in" style="transition-delay:0.14s">
+      </a>
+      <a href="#project-fraud" class="fade-in hover:opacity-70 transition-opacity" style="transition-delay:0.14s">
         <p class="text-2xl font-extrabold text-white">280K+</p>
         <p class="text-[10px] font-semibold uppercase tracking-widest text-zinc-500 mt-0.5">Transactions Analyzed</p>
-      </div>
-      <div class="fade-in" style="transition-delay:0.21s">
+      </a>
+      <a href="#project-churn" class="fade-in hover:opacity-70 transition-opacity" style="transition-delay:0.21s">
         <p class="text-2xl font-extrabold text-white">~85%</p>
         <p class="text-[10px] font-semibold uppercase tracking-widest text-zinc-500 mt-0.5">ROC-AUC</p>
-      </div>
+      </a>
       <div class="fade-in col-span-2 sm:col-span-1" style="transition-delay:0.28s">
         <p class="text-2xl font-extrabold text-emerald-400 flex items-center justify-center gap-1.5">
           <span class="relative flex h-2.5 w-2.5 mt-0.5 flex-shrink-0">
@@ -269,7 +255,7 @@
                 <p class="font-semibold text-zinc-900 text-xs">Georgia Institute of Technology</p>
                 <p class="text-xs text-zinc-500">Atlanta, GA</p>
                 <p>
-                  <span id="gpa-badge" class="inline-block text-sm font-bold px-2 py-0.5 rounded-md" style="background:#a18b5a;color:#ffffff">GPA <span id="about-gpa" data-val="4.0" data-float="1">4.0</span></span>
+                  <span id="gpa-badge" class="inline-block text-xs font-bold px-2 py-0.5 rounded-md" style="background:#a18b5a;color:#ffffff">GPA <span id="about-gpa" data-val="4.0" data-float="1">4.0</span></span>
                 </p>
               </div>
             </div>
@@ -295,9 +281,9 @@
                 <p class="font-semibold text-zinc-900 text-xs">New York University</p>
                 <p class="text-xs text-zinc-500">New York City, NY</p>
                 <p class="flex flex-wrap items-center gap-1">
-                  <span id="deans-badge" class="inline-block text-[10px] font-bold px-1 py-0.5 rounded" style="background:#57068c;color:white;border:1px solid #400066">Dean's List</span>
+                  <span id="deans-badge" class="inline-block text-xs font-bold px-2 py-0.5 rounded-md" style="background:#57068c;color:white;border:1px solid #400066">Dean's List</span>
                   <span class="text-zinc-400 text-[10px]">·</span>
-                  <span class="text-[10px] text-zinc-500">Math &amp; <span id="finance-badge" class="inline-block font-bold px-1 py-0.5 rounded" style="background:#57068c;color:#ffffff">Finance</span></span>
+                  <span class="text-xs text-zinc-500">Math &amp; <span id="finance-badge" class="inline-block font-bold px-2 py-0.5 rounded-md" style="background:#57068c;color:#ffffff">Finance</span></span>
                 </p>
               </div>
             </div>
@@ -394,7 +380,7 @@
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">Time Series</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">Clustering</span>
             <span class="bg-zinc-100 text-zinc-700 text-xs font-medium px-2.5 py-1 rounded-md">JWT Auth</span>
-            <span class="inline-flex self-start items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-md" style="background:#fef9e7;color:#00274C;border:1px solid #FFCB05">
+            <span class="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-md" style="background:#fef9e7;color:#00274C;border:1px solid #FFCB05;width:fit-content">
               <img src="/assets/logo-michigan.png" alt="Michigan" class="h-5 w-auto shrink-0" />
               <span class="flex flex-col leading-tight">
                 <span>Applied Data Science</span>
@@ -418,7 +404,7 @@
       <div class="grid sm:grid-cols-2 gap-4">
 
         <!-- Project 1: Churn -->
-        <div class="bg-white border border-zinc-200 rounded-xl overflow-hidden flex flex-col hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 fade-in">
+        <div id="project-churn" class="bg-white border border-zinc-200 rounded-xl overflow-hidden flex flex-col hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 fade-in">
           <div class="h-36 overflow-hidden bg-zinc-100">
             <img src="/assets/project-churn.png" alt="Churn Prediction"
                  class="w-full h-full object-cover" />
@@ -478,7 +464,7 @@
         </div>
 
         <!-- Project 3: Fraud -->
-        <div class="bg-white border border-zinc-200 rounded-xl overflow-hidden flex flex-col hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 fade-in">
+        <div id="project-fraud" class="bg-white border border-zinc-200 rounded-xl overflow-hidden flex flex-col hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 fade-in">
           <div class="h-36 overflow-hidden bg-zinc-100">
             <img src="/assets/project-fraud.png" alt="Fraud Detection"
                  class="w-full h-full object-cover" />
@@ -742,54 +728,21 @@
         if (p < 1) requestAnimationFrame(tick);
       })(start);
     }
-    // ── About GPA count-up + badge pop cascade ──
-    // Scroll-gated: animations only fire after the user has scrolled,
-    // even if the element is already in the viewport on page load.
-    let hasScrolled = false;
-    let gpaDeferred = null;
-    window.addEventListener('scroll', () => {
-      if (!hasScrolled) {
-        hasScrolled = true;
-        if (gpaDeferred) { gpaDeferred(); gpaDeferred = null; }
-      }
-    }, { passive: true });
-
-    function runGpaAnimation(el) {
-      const badge  = document.getElementById('gpa-badge');
-      const target = parseFloat(el.dataset.val);
-      const dur    = 1100;
-      const start  = performance.now();
-      (function tick(now) {
-        const p = Math.min((now - start) / dur, 1);
-        const eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = (target * eased).toFixed(1);
-        if (p < 1) {
-          requestAnimationFrame(tick);
-        } else {
-          el.textContent = target.toFixed(1);
-          if (badge) {
-            badge.classList.add('gpa-pop');
-            const fb = document.getElementById('finance-badge');
-            const db = document.getElementById('deans-badge');
-            if (fb) setTimeout(() => fb.classList.add('nyu-pop'), 350);
-            if (db) setTimeout(() => db.classList.add('nyu-pop'), 580);
-          }
-        }
-      })(start);
-    }
-
+    // ── About GPA count-up ──
     const aboutGpaEl = document.getElementById('about-gpa');
     if (aboutGpaEl) {
       new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             obs.disconnect();
-            if (hasScrolled) {
-              runGpaAnimation(entry.target);
-            } else {
-              // Element already in view on load — defer until first scroll
-              gpaDeferred = () => runGpaAnimation(entry.target);
-            }
+            const target = parseFloat(entry.target.dataset.val);
+            const dur = 1100, start = performance.now();
+            (function tick(now) {
+              const p = Math.min((now - start) / dur, 1);
+              entry.target.textContent = (target * (1 - Math.pow(1 - p, 3))).toFixed(1);
+              if (p < 1) requestAnimationFrame(tick);
+              else entry.target.textContent = target.toFixed(1);
+            })(start);
           }
         });
       }, { threshold: 0.5 }).observe(aboutGpaEl);
